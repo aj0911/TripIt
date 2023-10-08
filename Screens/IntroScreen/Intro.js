@@ -1,26 +1,26 @@
 import { View, Text, Image } from 'react-native'
-import React, { useState } from 'react'
+import React, {  useState } from 'react'
 import IntroStyleSheet from './Intro.Style'
 import Colors from '../../assets/Colors'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
-const Intro = () => {
+const Intro = ({navigation}) => {
 
     const cards=[
         {
             title:'Plan Your Trip',
             text:'Plan your trip, choose your destination. Pick the best place for your holiday',
-            img:require('../../assets/Images/intro-1.png')
+            img:require('../../assets/Images/intro-1.jpg')
         },
         {
             title:'Select The Date',
             text:'Select the date, book your tickets. We give you the best price. We guarantied!',
-            img:require('../../assets/Images/intro-3.png')
+            img:require('../../assets/Images/intro-3.jpg')
         },
         {
             title:'Enjoy Your Trip',
             text:'Enjoy your holiday, don\'t forget to take a photo and share to the world.',
-            img:require('../../assets/Images/intro-2.png')
+            img:require('../../assets/Images/intro-2.jpg')
         },
     ]
 
@@ -35,9 +35,10 @@ const Intro = () => {
       </View>
       <View style={IntroStyleSheet.IntroCards}>
         {
+
             cards.map((card,index)=>(
-                <View key={index} style={{...IntroStyleSheet.IntroCard,left:`${index*100}%`}}>
-                    <Image style={{objectFit:'fill',height:300,height:300}} source={card.img}/>
+                <View key={index} style={{...IntroStyleSheet.IntroCard,left:`${(index-page)*100}%`}}>
+                    <Image style={{objectFit:'contain',height:300,height:300}} source={card.img}/>
                     <Text style={IntroStyleSheet.IntroCard.title}>{card.title}</Text>
                     <Text style={IntroStyleSheet.IntroCard.text}>{card.text}</Text>
                 </View>   
@@ -47,20 +48,20 @@ const Intro = () => {
       <View style={{...IntroStyleSheet.pagination,justifyContent:(page>=cards.length-1)?'center':'space-between'}}>
         {
             (page>=cards.length-1)?'':
-            <TouchableOpacity>
+            <TouchableOpacity  onPress={()=>navigation.navigate('Login')}>
                 <Text style={IntroStyleSheet.pagination.text}>Skip</Text>
             </TouchableOpacity>
         }
         {
             (page>=cards.length-1)?
-            <TouchableOpacity>
+            <TouchableOpacity onPress={()=>navigation.navigate('Login')}>
                 <Text style={IntroStyleSheet.pagination.text}>Let's Go!</Text>
             </TouchableOpacity>
             :
             <View style={IntroStyleSheet.pagination.Balls}>
                 {
                     cards.map((_,index)=>(
-                        <View style={{height:15,width:15,borderRadius:15/2,backgroundColor:(page===index)?Colors.secCol:Colors.navCol}}></View>
+                        <View key={index} style={{height:15,width:15,borderRadius:15/2,backgroundColor:(page===index)?Colors.secCol:Colors.navCol}}></View>
                     ))
                 }
             </View>

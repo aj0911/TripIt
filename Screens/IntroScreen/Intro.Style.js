@@ -1,5 +1,6 @@
 import { Dimensions, Platform, StatusBar, StyleSheet } from "react-native";
 import Colors from "../../assets/Colors";
+import Constants from "../../Components/Constants";
 
 const IntroStyleSheet = StyleSheet.create({
     Intro:{
@@ -7,7 +8,7 @@ const IntroStyleSheet = StyleSheet.create({
         alignItems:'center',
         backgroundColor:Colors.bgCol,
         width:'100%',
-        height:Dimensions.get('screen').height - StatusBar.currentHeight,
+        height:Constants.FULLVIEW_HEIGHT,
         paddingBottom:30,
         paddingTop:20
     },
@@ -16,7 +17,7 @@ const IntroStyleSheet = StyleSheet.create({
         gap:10,
         justifyContent:'center',
         alignItems:'center',
-        marginTop:'20%',
+        marginTop:'10%',
         text:{
             fontFamily:'Medium',
             fontSize:35,
@@ -59,7 +60,6 @@ const IntroStyleSheet = StyleSheet.create({
     pagination:{
         flexDirection:'row',
         width:'100%',
-        
         paddingLeft:20,
         paddingRight:20,
         alignItems:'center',
