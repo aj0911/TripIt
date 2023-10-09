@@ -12,16 +12,13 @@ const Index = () => {
     const IntroView = ({navigation})=>{
         return <ScreenComponent Component={Intro} navigation = {navigation}/>
     }
-    const AuthView = ({navigation})=>{
-      return <ScreenComponent Component={AuthScreen} navigation = {navigation}/>
-  }
     
 
   return (
     <NavigationContainer>
         <Stack.Navigator initialRouteName='Intro' screenOptions={{headerShown:false}}>
             <Stack.Screen name='Intro' component={IntroView}/>
-            <Stack.Screen name='Login' component={AuthView}/>
+            <Stack.Screen name='Login' component={AuthScreen}/>
         </Stack.Navigator>
     </NavigationContainer>
   )
