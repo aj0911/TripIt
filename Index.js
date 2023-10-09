@@ -5,12 +5,18 @@ import {NavigationContainer} from '@react-navigation/native'
 import ScreenComponent from './Components/ScreenComponent'
 import Intro from './Screens/IntroScreen/Intro'
 import AuthScreen from './Screens/AuthenticationScreen/AuthScreen'
+import { ScrollView } from 'react-native-gesture-handler'
 
 const Index = () => {
 
     const Stack = createStackNavigator();
-    const IntroView = ({navigation})=>{
-        return <ScreenComponent Component={Intro} navigation = {navigation}/>
+    const IntroView = ({...rest})=>{
+        return <ScreenComponent Component={Intro} {...rest}/>
+    }
+    const AuthView = ({...rest})=>{
+      return <ScrollView>
+        <AuthScreen {...rest}/>
+      </ScrollView>
     }
     
 
@@ -18,7 +24,7 @@ const Index = () => {
     <NavigationContainer>
         <Stack.Navigator initialRouteName='Intro' screenOptions={{headerShown:false}}>
             <Stack.Screen name='Intro' component={IntroView}/>
-            <Stack.Screen name='Login' component={AuthScreen}/>
+            <Stack.Screen name='Login' component={AuthView}/>
         </Stack.Navigator>
     </NavigationContainer>
   )

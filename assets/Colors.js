@@ -3,7 +3,8 @@ const Colors = {
     secCol:'#E00A71',
     bgCol:'#FFF',
     navCol:'#BAB2A5',
-    textColor:'black'
+    textColor:'black',
+    mainColLight:'#F4666A'
 }
 
 export default Colors;
