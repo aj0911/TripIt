@@ -19,7 +19,7 @@ const AuthScreen = ({navigation,route}) => {
           <Text style={{...IntroStyleSheet.logo.text,color:Colors.bgCol}}>Trip<Text style={{color:Colors.bgCol}}>IT</Text></Text>
           <Text/>
         </View>
-        <Login name={name} setName={setName}/>
+        <Login name={name} navigation={navigation} setName={setName}/>
         <View style={AuthStyleSheet.downView}>
           {
             (name===Constants.REGISTER_SCREEN || name === Constants.LOGIN_SCREEN)?

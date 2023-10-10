@@ -7,7 +7,7 @@ import Colors from '../../assets/Colors'
 import Constants from '../../Components/Constants'
 import Checkbox from 'expo-checkbox';
 
-const Login = ({name,setName}) => {
+const Login = ({name,setName,navigation}) => {
     const [isChecked,setIsChecked] = useState(false);
     const pinRef = {
         first:useRef(null),
@@ -24,6 +24,7 @@ const Login = ({name,setName}) => {
 
     const handleVerify =()=>{
         const otp = `${pinVal.first}${pinVal.sec}${pinVal.third}${pinVal.fourth}`;
+        navigation.navigate('Home');
     }
     const handleLogin =()=>{
         setName(Constants.VERIFY_SCREEN)

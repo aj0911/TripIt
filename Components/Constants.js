@@ -9,4 +9,418 @@ const Constants = {
     VERIFY_SCREEN:'Verify'
 };
 
+const Data = [
+    {
+      country: "India",
+      countryImage: "https://source.unsplash.com/800x600/?India",
+      hotels: [
+        {
+          name: "Taj Lake Palace",
+          location: "Udaipur, Rajasthan",
+          rating: 4.9,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?taj-lake-palace",
+        },
+        {
+          name: "The Oberoi Amarvilas",
+          location: "Agra, Uttar Pradesh",
+          rating: 4.8,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?oberoi-amarvilas",
+        },
+        {
+          name: "Rambagh Palace",
+          location: "Jaipur, Rajasthan",
+          rating: 4.7,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?rambagh-palace",
+        },
+        {
+          name: "Wildflower Hall, Shimla",
+          location: "Shimla, Himachal Pradesh",
+          rating: 4.8,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?wildflower-hall",
+        },
+        {
+          name: "The Leela Palace",
+          location: "Chennai, Tamil Nadu",
+          rating: 4.6,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?leela-palace",
+        },
+      ]
+    },
+    {
+      country: "United States",
+      countryImage: "https://source.unsplash.com/800x600/?usa",
+      hotels: [
+        {
+          name: "The Ritz-Carlton",
+          location: "New York, NY",
+          rating: 4.9,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?ritz-carlton",
+        },
+        {
+          name: "Four Seasons Hotel",
+          location: "Beverly Hills, CA",
+          rating: 4.8,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?four-seasons-hotel",
+        },
+        {
+          name: "Waldorf Astoria",
+          location: "Chicago, IL",
+          rating: 4.7,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?waldorf-astoria",
+        },
+        {
+          name: "The Plaza",
+          location: "New York, NY",
+          rating: 4.7,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?the-plaza",
+        },
+        {
+          name: "The Venetian Resort",
+          location: "Las Vegas, NV",
+          rating: 4.6,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?venetian-resort",
+        },
+      ]
+    },
+    {
+      country: "Japan",
+      countryImage: "https://source.unsplash.com/800x600/?japan",
+      hotels: [
+        {
+          name: "Aman Tokyo",
+          location: "Tokyo",
+          rating: 4.9,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?aman-tokyo",
+        },
+        {
+          name: "The Ritz-Carlton",
+          location: "Osaka",
+          rating: 4.8,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?ritz-carlton-osaka",
+        },
+        {
+          name: "Park Hyatt Tokyo",
+          location: "Tokyo",
+          rating: 4.7,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?park-hyatt-tokyo",
+        },
+        {
+          name: "Hoshinoya Tokyo",
+          location: "Tokyo",
+          rating: 4.8,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?hoshinoya-tokyo",
+        },
+        {
+          name: "Andaz Tokyo",
+          location: "Tokyo",
+          rating: 4.6,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?andaz-tokyo",
+        },
+      ]
+    },
+    {
+      country: "France",
+      countryImage: "https://source.unsplash.com/800x600/?france",
+      hotels: [
+        {
+          name: "Four Seasons Hotel George V",
+          location: "Paris",
+          rating: 4.9,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?four-seasons-paris",
+        },
+        {
+          name: "Le Meurice",
+          location: "Paris",
+          rating: 4.8,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?le-meurice",
+        },
+        {
+          name: "Ritz Paris",
+          location: "Paris",
+          rating: 4.7,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?ritz-paris",
+        },
+        {
+          name: "Hotel Plaza Athenee",
+          location: "Paris",
+          rating: 4.7,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?plaza-athenee",
+        },
+        {
+          name: "Château de Berne",
+          location: "Provence",
+          rating: 4.6,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?chateau-de-berne",
+        },
+      ]
+    },
+    {
+      country: "Italy",
+      countryImage: "https://source.unsplash.com/800x600/?italy",
+      hotels: [
+        {
+          name: "Belmond Hotel Caruso",
+          location: "Ravello",
+          rating: 4.9,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?hotel-caruso",
+        },
+        {
+          name: "Il San Pietro di Positano",
+          location: "Positano",
+          rating: 4.8,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?san-pietro-positano",
+        },
+        {
+          name: "Hotel Splendido",
+          location: "Portofino",
+          rating: 4.7,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?hotel-splendido",
+        },
+        {
+          name: "Villa d'Este",
+          location: "Como",
+          rating: 4.7,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?villa-deste",
+        },
+        {
+          name: "Borgo Egnazia",
+          location: "Savelletri di Fasano",
+          rating: 4.6,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?borgo-egnazia",
+        },
+      ]
+    },
+    {
+      country: "Switzerland",
+      countryImage: "https://source.unsplash.com/800x600/?switzerland",
+      hotels: [
+        {
+          name: "Badrutt's Palace Hotel",
+          location: "St. Moritz",
+          rating: 4.9,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?badrutts-palace",
+        },
+        {
+          name: "The Dolder Grand",
+          location: "Zurich",
+          rating: 4.8,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?dolder-grand",
+        },
+        {
+          name: "Bürgenstock Hotel & Alpine Spa",
+          location: "Lucerne",
+          rating: 4.7,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?burgenstock-hotel",
+        },
+        {
+          name: "Kulm Hotel",
+          location: "St. Moritz",
+          rating: 4.7,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?kulm-hotel",
+        },
+        {
+          name: "The Chedi Andermatt",
+          location: "Andermatt",
+          rating: 4.6,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?chedi-andermatt",
+        },
+      ]
+    },
+    {
+      country: "Maldives",
+      countryImage: "https://source.unsplash.com/800x600/?maldives",
+      hotels: [
+        {
+          name: "Gili Lankanfushi",
+          location: "Lankanfushi Island",
+          rating: 4.9,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?gili-lankanfushi",
+        },
+        {
+          name: "Six Senses Laamu",
+          location: "Laamu Atoll",
+          rating: 4.8,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?six-senses-laamu",
+        },
+        {
+          name: "Cheval Blanc Randheli",
+          location: "Noonu Atoll",
+          rating: 4.7,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?cheval-blanc-randheli",
+        },
+        {
+          name: "One&Only Reethi Rah",
+          location: "North Malé Atoll",
+          rating: 4.7,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?one-and-only-reethi-rah",
+        },
+        {
+          name: "Velaa Private Island",
+          location: "Noonu Atoll",
+          rating: 4.6,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?velaa-private-island",
+        },
+      ]
+    },
+    {
+      country: "Spain",
+      countryImage: "https://source.unsplash.com/800x600/?spain",
+      hotels: [
+        {
+          name: "Hotel Arts Barcelona",
+          location: "Barcelona",
+          rating: 4.8,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?hotel-arts-barcelona",
+        },
+        {
+          name: "Mandarin Oriental",
+          location: "Barcelona",
+          rating: 4.7,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?mandarin-oriental",
+        },
+        {
+          name: "Gran Hotel Miramar",
+          location: "Malaga",
+          rating: 4.6,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?gran-hotel-miramar",
+        },
+        {
+          name: "Hotel Maria Cristina",
+          location: "San Sebastian",
+          rating: 4.7,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?hotel-maria-cristina",
+        },
+        {
+          name: "Abadia Retuerta LeDomaine",
+          location: "Sardon de Duero",
+          rating: 4.8,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?abadia-retuerta-le-domaine",
+        },
+      ]
+    },
+    {
+      country: "Thailand",
+      countryImage: "https://source.unsplash.com/800x600/?thailand",
+      hotels: [
+        {
+          name: "Mandarin Oriental",
+          location: "Bangkok",
+          rating: 4.9,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?mandarin-oriental-bangkok",
+        },
+        {
+          name: "Four Seasons Resort Chiang Mai",
+          location: "Chiang Mai",
+          rating: 4.8,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?four-seasons-chiang-mai",
+        },
+        {
+          name: "Amanpuri",
+          location: "Phuket",
+          rating: 4.7,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?amanpuri-phuket",
+        },
+        {
+          name: "The Peninsula",
+          location: "Bangkok",
+          rating: 4.7,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?the-peninsula-bangkok",
+        },
+        {
+          name: "Six Senses Yao Noi",
+          location: "Phang Nga",
+          rating: 4.6,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?six-senses-yao-noi",
+        },
+      ]
+    },
+    {
+      country: "Australia",
+      countryImage: "https://source.unsplash.com/800x600/?australia",
+      hotels: [
+        {
+          name: "Qualia",
+          location: "Hamilton Island, Queensland",
+          rating: 4.8,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?qualia",
+        },
+        {
+          name: "Southern Ocean Lodge",
+          location: "Kangaroo Island, South Australia",
+          rating: 4.8,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?southern-ocean-lodge",
+        },
+        {
+          name: "The Langham",
+          location: "Sydney, New South Wales",
+          rating: 4.7,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?the-langham-sydney",
+        },
+        {
+          name: "Saffire Freycinet",
+          location: "Coles Bay, Tasmania",
+          rating: 4.7,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?saffire-freycinet",
+        },
+        {
+          name: "The Darling",
+          location: "Gold Coast, Queensland",
+          rating: 4.6,
+          priceRange: "$$$",
+          hotelImage: "https://source.unsplash.com/800x600/?the-darling-gold-coast",
+        },
+      ]
+    }
+  ]; 
+
+export {Data};
 export default Constants;

@@ -6,10 +6,14 @@ import ScreenComponent from './Components/ScreenComponent'
 import Intro from './Screens/IntroScreen/Intro'
 import AuthScreen from './Screens/AuthenticationScreen/AuthScreen'
 import { ScrollView } from 'react-native-gesture-handler'
+import SearchScreen from './Screens/AditionalScreens/SearchScreen'
+import HomeScreen from './Screens/HomeScreen/HomeScreen'
 
 const Index = () => {
 
     const Stack = createStackNavigator();
+    
+    //Views
     const IntroView = ({...rest})=>{
         return <ScreenComponent Component={Intro} {...rest}/>
     }
@@ -18,6 +22,17 @@ const Index = () => {
         <AuthScreen {...rest}/>
       </ScrollView>
     }
+
+    const SearchView = ({...rest})=>{
+      return (
+        <ScrollView>
+          <SearchScreen {...rest}/>
+        </ScrollView>
+      )
+    }
+    const HomeView = ({...rest})=>{
+      return <ScreenComponent Component={HomeScreen} {...rest}/>
+    }
     
 
   return (
@@ -25,6 +40,8 @@ const Index = () => {
         <Stack.Navigator initialRouteName='Intro' screenOptions={{headerShown:false}}>
             <Stack.Screen name='Intro' component={IntroView}/>
             <Stack.Screen name='Login' component={AuthView}/>
+            <Stack.Screen name='Search' component={SearchView}/>
+            <Stack.Screen name='Home' component={HomeView}/>
         </Stack.Navigator>
     </NavigationContainer>
   )
