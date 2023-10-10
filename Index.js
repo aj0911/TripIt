@@ -10,6 +10,7 @@ import SearchScreen from './Screens/AditionalScreens/SearchScreen'
 import HomeScreen from './Screens/HomeScreen/HomeScreen'
 import BottomNav from './Components/BottomNav'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
+import Countries from './Screens/CountriesScreen/Countries'
 
 const Index = () => {
 
@@ -35,6 +36,9 @@ const Index = () => {
     const HomeView = ({...rest})=>{
       return <ScreenComponent Component={HomeScreen} {...rest}/>
     }
+    const CountryView = ({...rest})=>{
+      return <ScreenComponent Component={Countries} {...rest}/>
+    }
     
 
   return (
@@ -45,13 +49,9 @@ const Index = () => {
               <Stack.Screen name='Login' component={AuthView}/>
               <Stack.Screen name='Search' component={SearchView}/>
               <Stack.Screen name='Home' component={HomeView}/>
+              <Stack.Screen name='Countries' component={CountryView}/>
           </Stack.Navigator>
       </NavigationContainer>
-      <GestureHandlerRootView>
-        <NavigationContainer>
-          <BottomNav/>
-        </NavigationContainer>
-      </GestureHandlerRootView>
     </>
       
   )

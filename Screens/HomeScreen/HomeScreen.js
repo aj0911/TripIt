@@ -6,8 +6,9 @@ import { TouchableOpacity } from 'react-native-gesture-handler'
 import Constants, { Data, testimonialsData, topPlaces } from '../../Components/Constants'
 import Colors from '../../assets/Colors'
 import StarComponent from '../../Components/StarComponent'
+import BottomNav from '../../Components/BottomNav'
 
-const HomeScreen = ({navigation}) => {
+const HomeScreen = ({navigation,route}) => {
   return (
     <View style={HomeStyleSheet.home}>
       <View style={HomeStyleSheet.header}>
@@ -155,6 +156,7 @@ const HomeScreen = ({navigation}) => {
               )})
           }
       </View>
+      <BottomNav navigation={navigation} route={route}/>
     </View>
   )
 }

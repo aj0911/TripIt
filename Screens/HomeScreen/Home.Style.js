@@ -9,7 +9,6 @@ const HomeStyleSheet = StyleSheet.create({
         alignItems:'center',
         gap:10,
         backgroundColor:Colors.bgCol,
-        paddingBottom:20
     },
     header:{
         paddingLeft:20,

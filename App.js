@@ -3,6 +3,7 @@ import * as SplashScreen from 'expo-splash-screen'
 import { useCallback } from 'react';
 import 'react-native-gesture-handler';
 import Index from './Index';
+import BottomNav from './Components/BottomNav';
 
 export default function App() {
 
@@ -24,6 +25,10 @@ export default function App() {
 
   if (!fontsLoaded) return null;
 
-  return <Index/>
+  return (
+    <>
+      <Index/>
+    </>
+  )
 }
 
