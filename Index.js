@@ -5,9 +5,11 @@ import {NavigationContainer} from '@react-navigation/native'
 import ScreenComponent from './Components/ScreenComponent'
 import Intro from './Screens/IntroScreen/Intro'
 import AuthScreen from './Screens/AuthenticationScreen/AuthScreen'
-import { ScrollView } from 'react-native-gesture-handler'
+import { ScrollView } from 'react-native'
 import SearchScreen from './Screens/AditionalScreens/SearchScreen'
 import HomeScreen from './Screens/HomeScreen/HomeScreen'
+import BottomNav from './Components/BottomNav'
+import { GestureHandlerRootView } from 'react-native-gesture-handler'
 
 const Index = () => {
 
@@ -36,14 +38,22 @@ const Index = () => {
     
 
   return (
-    <NavigationContainer>
-        <Stack.Navigator initialRouteName='Intro' screenOptions={{headerShown:false}}>
-            <Stack.Screen name='Intro' component={IntroView}/>
-            <Stack.Screen name='Login' component={AuthView}/>
-            <Stack.Screen name='Search' component={SearchView}/>
-            <Stack.Screen name='Home' component={HomeView}/>
-        </Stack.Navigator>
-    </NavigationContainer>
+    <>
+      <NavigationContainer>
+          <Stack.Navigator initialRouteName='Intro' screenOptions={{headerShown:false}}>
+              <Stack.Screen name='Intro' component={IntroView}/>
+              <Stack.Screen name='Login' component={AuthView}/>
+              <Stack.Screen name='Search' component={SearchView}/>
+              <Stack.Screen name='Home' component={HomeView}/>
+          </Stack.Navigator>
+      </NavigationContainer>
+      <GestureHandlerRootView>
+        <NavigationContainer>
+          <BottomNav/>
+        </NavigationContainer>
+      </GestureHandlerRootView>
+    </>
+      
   )
 }
 

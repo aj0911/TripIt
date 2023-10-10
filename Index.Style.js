@@ -6,7 +6,6 @@ const IndexStyleSheet = StyleSheet.create({
         gap:3,
         justifyContent:'flex-start',
         alignItems:'center',
-        width:'100%'
     }
 });
 

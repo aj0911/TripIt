@@ -130,6 +130,76 @@ const HomeStyleSheet = StyleSheet.create({
             justifyContent:'space-between',
             alignItems:'center'
         }
+    },
+    blogView:{
+        width:Constants.FULLVIEW_WIDTH/1.4,
+        backgroundColor:Colors.bgCol,
+        elevation:20,
+        shadowColor: 'black',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.5,
+        shadowRadius: 2,
+        padding:10,
+        overflow:'hidden',
+        borderRadius:10,
+        justifyContent:'flex-start',
+        alignItems:'flex-start',
+        gap:-15,
+        marginBottom:20,
+        title:{
+            marginTop:20,
+            fontFamily:'Medium',
+            fontSize:12,
+            textTransform:'capitalize',
+            width:'100%'
+        },
+        text:{
+            marginTop:20,
+            fontFamily:'Regular',
+            fontSize:10,
+        },
+        boxView:{
+            flexDirection:'row',
+            justifyContent:'space-between',
+            alignItems:'center',
+            borderColor:Colors.mainCol,
+            borderBottomWidth:.2,
+            paddingBottom:10,
+            width:'100%'
+        }
+    },
+    searchView:{
+        justifyContent:'center',
+        alignItems:'center',
+        gap:10,
+        width:'100%',
+        marginTop:20,
+        marginBottom:20,
+        paddingLeft:20,
+        paddingRight:20,
+        overflow:'hidden'
+    },
+    searchViewCard:{
+        width:'100%',
+        flexDirection:'row',
+        gap:10,
+        elevation:20,
+        shadowColor: 'black',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.5,
+        shadowRadius: 2,
+        left:{
+            width:'65%'
+        },
+        title:{
+            fontFamily:'Bold',
+            fontSize:12,
+        },
+        text:{
+            fontFamily:'Medium',
+            fontSize:10,
+            color:Colors.mainCol
+        }
     }
 });
 

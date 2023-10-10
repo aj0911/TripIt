@@ -234,7 +234,7 @@ const Data = [
           hotelImage: "https://source.unsplash.com/800x600/?dolder-grand",
         },
         {
-          name: "Bürgenstock Hotel & Alpine Spa",
+          name: "Bürgenstock Hotel",
           location: "Lucerne",
           rating: 4.7,
           priceRange: "$$$",
@@ -420,7 +420,78 @@ const Data = [
         },
       ]
     }
-  ]; 
+]; 
 
-export {Data};
+const topPlaces = {
+  India: {
+    place: "Taj Mahal, Agra",
+    review: "The Taj Mahal is an architectural marvel, symbolizing love and beauty.",
+    image: "https://source.unsplash.com/800x600/?Taj-mahal"
+  },
+  America: {
+    place: "Grand Canyon, Arizona",
+    review: "The Grand Canyon is a breathtaking natural wonder, offering stunning views.",
+    image: "https://source.unsplash.com/800x600/?grand-canyon"
+  },
+  Spain: {
+    place: "Sagrada Família, Barcelona",
+    review: "Sagrada Família is a masterpiece of Antoni Gaudí, a must-see in Barcelona.",
+    image: "https://source.unsplash.com/800x600/?sagrada-familia"
+  },
+  Maldives: {
+    place: "Bora Bora, Maldives",
+    review: "Bora Bora is a tropical paradise with crystal clear waters and overwater bungalows.",
+    image: "https://source.unsplash.com/800x600/?bora-bora"
+  },
+  Australia: {
+    place: "Great Barrier Reef, Queensland",
+    review: "The Great Barrier Reef is a vibrant underwater ecosystem, perfect for diving.",
+    image: "https://source.unsplash.com/800x600/?great-barrier-reef"
+  },
+  France: {
+    place: "Eiffel Tower, Paris",
+    review: "The Eiffel Tower is an iconic landmark, offering stunning views of Paris.",
+    image: "https://source.unsplash.com/800x600/?eiffel-tower"
+  },
+  Italy: {
+    place: "Colosseum, Rome",
+    review: "The Colosseum is an ancient Roman amphitheater, a testament to history.",
+    image: "https://source.unsplash.com/800x600/?colosseum"
+  },
+  Japan: {
+    place: "Mount Fuji, Honshu",
+    review: "Mount Fuji is a sacred volcano, an iconic symbol of Japan's natural beauty.",
+    image: "https://source.unsplash.com/800x600/?mount-fuji"
+  },
+  Switzerland: {
+    place: "Matterhorn, Zermatt",
+    review: "The Matterhorn is a majestic peak, offering breathtaking views of the Alps.",
+    image: "https://source.unsplash.com/800x600/?matterhorn"
+  },
+  Thailand: {
+    place: "Phi Phi Islands, Krabi",
+    review: "The Phi Phi Islands are a tropical paradise with crystal clear waters and stunning beaches.",
+    image: "https://source.unsplash.com/800x600/?phi-phi-islands"
+  }
+};
+
+const testimonialsData = [
+  {
+      name: "John Doe",
+      review: "Had an amazing experience with the tour. The guides were knowledgeable and the sights were breathtaking. Definitely a trip to remember!",
+      avatarUrl: "https://source.unsplash.com/200x200/?male" // Replace with actual image URL
+  },
+  {
+      name: "Jane Smith",
+      review: "This tour exceeded all my expectations. The accommodations were top-notch, and the itinerary was well-planned. I can't wait to book another trip!",
+      avatarUrl: "https://source.unsplash.com/200x200/?person" // Replace with actual image URL
+  },
+  {
+      name: "Mixy Johnson",
+      review: "I've been on many tours, but this one stood out. The attention to detail and personalized service made all the difference. Highly recommended!",
+      avatarUrl: "https://source.unsplash.com/200x200/?female" // Replace with actual image URL
+  }
+];
+
+export {Data,topPlaces,testimonialsData};
 export default Constants;
