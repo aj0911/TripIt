@@ -9,6 +9,7 @@ const HomeStyleSheet = StyleSheet.create({
         alignItems:'center',
         gap:10,
         backgroundColor:Colors.bgCol,
+        paddingBottom:20
     },
     header:{
         paddingLeft:20,
@@ -69,6 +70,66 @@ const HomeStyleSheet = StyleSheet.create({
             fontSize:12
         },
         backgroundColor:Colors.bgCol
+    },
+    banner:{
+        width:'100%',
+        text:{
+            fontSize:15,
+            fontFamily:'Medium',
+            marginLeft:20,
+            color:Colors.bgCol
+        },
+        justifyContent:'flex-start',
+        alignItems:'flex-start',
+        height:200,
+        objectFit:'cover',
+        paddingTop:50,
+        position:'relative',
+        marginBottom:100
+    },
+    cardsView:{
+        flexDirection:'row',
+        paddingLeft:20,
+        paddingRight:20,
+        gap:20,
+        paddingBottom:20,
+    },
+    cardView:{
+        backgroundColor:Colors.bgCol,
+        elevation:20,
+        shadowColor: 'black',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.5,
+        shadowRadius: 2,
+        padding:12,
+        width:Constants.FULLVIEW_WIDTH/1.5,
+        borderRadius:5,
+        justifyContent:'flex-start',
+        alignItems:'flex-start',
+        position:'relative',
+        title:{
+            fontFamily:'Regular',
+            fontSize:10,
+            color:Colors.navCol
+        },
+        text:{
+            fontFamily:'Medium',
+            fontSize:15,
+            
+        },
+        arrow:{
+            padding:5,
+            backgroundColor:Colors.mainCol,
+            borderRadius:20,
+            textAlign:'center',
+            textAlignVertical:'center',
+        },
+        box:{
+            width:'100%',
+            flexDirection:'row',
+            justifyContent:'space-between',
+            alignItems:'center'
+        }
     }
 });
 
