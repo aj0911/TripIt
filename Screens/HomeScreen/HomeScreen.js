@@ -1,5 +1,5 @@
-import { View, Text, Image, ScrollView, ImageBackground } from 'react-native'
-import React from 'react'
+import { View, Text, Image, ScrollView, ImageBackground, Animated } from 'react-native'
+import React, { useRef, useState } from 'react'
 import HomeStyleSheet from './Home.Style'
 import { Ionicons } from '@expo/vector-icons'
 import { TouchableOpacity } from 'react-native-gesture-handler'
@@ -7,12 +7,23 @@ import Constants, { Data, testimonialsData, topPlaces } from '../../Components/C
 import Colors from '../../assets/Colors'
 import StarComponent from '../../Components/StarComponent'
 import BottomNav from '../../Components/BottomNav'
+import DrawerNav from '../../Components/DrawerNav'
 
 const HomeScreen = ({navigation,route}) => {
+  const [drawerOpen,setDrawerOpen] = useState(false);
+  const animation = useRef(new Animated.Value(0)).current;
+    const startAnimation = ()=>{
+        Animated.timing(animation,{
+            toValue:drawerOpen?0:1,
+            useNativeDriver:true,
+            duration:300
+        }).start();
+    }
   return (
-    <View style={HomeStyleSheet.home}>
+    <View style={{...HomeStyleSheet.home,height:(drawerOpen)?Constants.FULLVIEW_HEIGHT:'auto'}}>
+      <DrawerNav drawerOpen={drawerOpen} startAnimation={startAnimation} animation={animation} setDrawerOpen={setDrawerOpen}/>
       <View style={HomeStyleSheet.header}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={()=>{setDrawerOpen(true);startAnimation()}}>
             <Ionicons size={25} name='menu-sharp'/>
         </TouchableOpacity>
         <Text style={HomeStyleSheet.header.text}>Tours</Text>

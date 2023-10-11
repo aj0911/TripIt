@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 import Colors from "./assets/Colors";
+import Constants from "./Components/Constants";
 
 const IndexStyleSheet = StyleSheet.create({
     starComponent:{
@@ -23,7 +24,7 @@ const IndexStyleSheet = StyleSheet.create({
         backgroundColor:'white',
         paddingBottom:30,
         paddingTop:20,
-        position:'relative'
+        position:'relative',
     },
     activeBtn:{
         borderRadius:50,
@@ -36,7 +37,17 @@ const IndexStyleSheet = StyleSheet.create({
         color:Colors.bgCol,
         padding:10,
         borderRadius:50,
-    }
+    },
+    drawerNav:{
+        position:"absolute",
+        top:0,
+        left:-1*Constants.FULLVIEW_WIDTH,
+        width:Constants.FULLVIEW_WIDTH,
+        height:'100%',
+        backgroundColor:Colors.bgCol,
+        zIndex:5,
+        overflow:'hidden'
+    },
 });
 
 export default IndexStyleSheet;
