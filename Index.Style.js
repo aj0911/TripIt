@@ -29,8 +29,6 @@ const IndexStyleSheet = StyleSheet.create({
     activeBtn:{
         borderRadius:50,
         elevation:5,
-        padding:3,
-        backgroundColor:Colors.bgCol
     },
     activeIcon:{
         backgroundColor:Colors.mainCol,
@@ -46,8 +44,41 @@ const IndexStyleSheet = StyleSheet.create({
         height:'100%',
         backgroundColor:Colors.bgCol,
         zIndex:5,
-        overflow:'hidden'
+        overflow:'hidden',
+        padding:20,
+        name:{
+            fontFamily:'Bold',
+            fontSize:18,
+        },
+        email:{
+            fontFamily:'Regular',
+            fontSize:12,
+            color:Colors.navCol,
+            marginTop:-5
+        }
     },
+    optionView:{
+        gap:10,
+        marginTop:30
+    },
+    box:{
+        width:'100%',
+        flexDirection:'row',
+        alignItems:'center',
+        justifyContent:'space-between',
+        view:{
+            flexDirection:'row',
+            gap:10,
+            alignItems:'center',
+            justifyContent:'space-between',
+        },
+        text:{
+            fontFamily:'Medium',
+            fontSize:14,
+        },
+        borderColor:Colors.navCol,
+        paddingBottom:10
+    }
 });
 
 export default IndexStyleSheet;

@@ -5,7 +5,7 @@ import Constants from "../../Components/Constants";
 const HomeStyleSheet = StyleSheet.create({
     home:{
         width:'100%',
-        justifyContent:'flex-start',
+        justifyContent:'space-between',
         alignItems:'center',
         gap:10,
         backgroundColor:Colors.bgCol,

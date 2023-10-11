@@ -1,13 +1,13 @@
-import { View, Text, TouchableOpacity, Animated, ImageBackground } from 'react-native'
+import { View, Text, TouchableOpacity, Animated, ImageBackground, Image } from 'react-native'
 import React, { useRef, useState } from 'react'
 import BottomNav from '../../Components/BottomNav'
-import CountryStyleSheet from './Countries.Style'
+import NotificationStyleSheet from './Notification.Style'
 import HomeStyleSheet from '../HomeScreen/Home.Style'
 import DrawerNav from '../../Components/DrawerNav'
 import { Ionicons } from '@expo/vector-icons'
-import Constants, { Data } from '../../Components/Constants'
+import Constants, { tourNotifications } from '../../Components/Constants'
 
-const Countries = ({navigation,route}) => {
+const NotificationScreen = ({navigation,route}) => {
   const [drawerOpen,setDrawerOpen] = useState(false);
   const animation = useRef(new Animated.Value(0)).current;
     const startAnimation = ()=>{
@@ -24,17 +24,18 @@ const Countries = ({navigation,route}) => {
         <TouchableOpacity onPress={()=>{setDrawerOpen(true);startAnimation()}}>
             <Ionicons size={25} name='menu-sharp'/>
         </TouchableOpacity>
-        <Text style={HomeStyleSheet.header.text}>Location</Text>
+        <Text style={HomeStyleSheet.header.text}>Notification</Text>
         <View></View>
       </View>
-      <View style={CountryStyleSheet.countryCardView}>
+      <View style={NotificationStyleSheet.notificationCardView}>
         {
-          Data.map((country,index)=>(
-            <TouchableOpacity key={index} style={CountryStyleSheet.card}>
-              <ImageBackground imageStyle={{opacity:.6,backgroundColor:'rgb(0,0,0)',}} style={CountryStyleSheet.cardImageView} source={{uri:country.countryImage}}>
-                <Text style={CountryStyleSheet.card.title}>{country.country}</Text>
-                <Text style={CountryStyleSheet.card.text}>{country.hotels[0].location}</Text>
-              </ImageBackground>
+          tourNotifications.map((notification,index)=>(
+            <TouchableOpacity key={index} style={NotificationStyleSheet.card}>
+              <Image style={{width:70,height:70,borderRadius:35}} source={notification.imageUrl}/>
+              <View>
+                <Text style={NotificationStyleSheet.card.text}>{notification.notificationText}</Text>
+                <Text style={NotificationStyleSheet.card.date}>{notification.dateTime}</Text>
+              </View>
             </TouchableOpacity>
           ))
         }
@@ -44,4 +45,4 @@ const Countries = ({navigation,route}) => {
   )
 }
 
-export default Countries
+export default NotificationScreen

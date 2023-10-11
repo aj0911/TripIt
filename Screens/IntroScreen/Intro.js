@@ -48,7 +48,7 @@ const Intro = ({navigation}) => {
       <View style={{...IntroStyleSheet.pagination,justifyContent:(page>=cards.length-1)?'center':'space-between'}}>
         {
             (page>=cards.length-1)?'':
-            <TouchableOpacity  onPress={()=>navigation.navigate('Login')}>
+            <TouchableOpacity  onPress={()=>navigation.navigate('Home')}>
                 <Text style={IntroStyleSheet.pagination.text}>Skip</Text>
             </TouchableOpacity>
         }

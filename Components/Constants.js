@@ -493,5 +493,54 @@ const testimonialsData = [
   }
 ];
 
-export {Data,topPlaces,testimonialsData};
+const tourNotifications = [
+  {
+    imageUrl: require('../assets/Images/avatar.jpg'),
+    notificationText: "Your tour to Paris has been confirmed!",
+    dateTime: "20 Dec 2023 at 12:35 AM"
+  },
+  {
+    imageUrl: require('../assets/Images/avatar.jpg'),
+    notificationText: "Reminder: Don't forget your passport and tickets!",
+    dateTime: "22 Dec 2023 at 08:00 AM"
+  },
+  {
+    imageUrl: require('../assets/Images/avatar.jpg'),
+    notificationText: "New recommendation: Try the local cuisine at Le Bistro.",
+    dateTime: "25 Dec 2023 at 06:45 PM"
+  },
+  {
+    imageUrl: require('../assets/Images/avatar.jpg'),
+    notificationText: "Weather Alert: Rain expected in Paris tomorrow.",
+    dateTime: "27 Dec 2023 at 09:20 AM"
+  },
+  {
+    imageUrl: require('../assets/Images/avatar.jpg'),
+    notificationText: "Your tour guide's contact: +33-123-456-789.",
+    dateTime: "28 Dec 2023 at 03:30 PM"
+  },
+  {
+    imageUrl: require('../assets/Images/avatar.jpg'),
+    notificationText: "Reminder: Group meeting at the hotel lobby at 7 AM.",
+    dateTime: "30 Dec 2023 at 06:00 AM"
+  },
+  {
+    imageUrl: require('../assets/Images/avatar.jpg'),
+    notificationText: "Last day in Paris! Make the most of it.",
+    dateTime: "02 Jan 2024 at 10:00 AM"
+  },
+  {
+    imageUrl: require('../assets/Images/avatar.jpg'),
+    notificationText: "Tour feedback form: Please share your experience.",
+    dateTime: "03 Jan 2024 at 04:15 PM"
+  },
+  {
+    imageUrl: require('../assets/Images/avatar.jpg'),
+    notificationText: "Thank you for using our tour planner app!",
+    dateTime: "05 Jan 2024 at 09:50 AM"
+  }
+];
+
+
+export {tourNotifications,Data,topPlaces,testimonialsData};
 export default Constants;

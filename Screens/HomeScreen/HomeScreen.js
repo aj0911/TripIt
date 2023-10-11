@@ -21,7 +21,7 @@ const HomeScreen = ({navigation,route}) => {
     }
   return (
     <View style={{...HomeStyleSheet.home,height:(drawerOpen)?Constants.FULLVIEW_HEIGHT:'auto'}}>
-      <DrawerNav drawerOpen={drawerOpen} startAnimation={startAnimation} animation={animation} setDrawerOpen={setDrawerOpen}/>
+      <DrawerNav naviagation={navigation} startAnimation={startAnimation} animation={animation} setDrawerOpen={setDrawerOpen}/>
       <View style={HomeStyleSheet.header}>
         <TouchableOpacity onPress={()=>{setDrawerOpen(true);startAnimation()}}>
             <Ionicons size={25} name='menu-sharp'/>
