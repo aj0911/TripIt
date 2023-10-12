@@ -9,8 +9,8 @@ const NotificationStyleSheet = StyleSheet.create({
         alignItems:'center',
         borderBottomWidth:.3,
         borderColor:Colors.navCol,
-        paddingBottom:10,
-        paddingTop:10,
+        paddingBottom:5,
+        paddingTop:5,
         overflow:'hidden',
         gap:10,
         text:{
@@ -29,7 +29,9 @@ const NotificationStyleSheet = StyleSheet.create({
         justifyContent:'center',
         alignItems:'center',
         overflow:'hidden',
-        padding:20
+        paddingBottom:20,
+        paddingLeft:20,
+        paddingRight:20
     }
 });
 

@@ -24,7 +24,6 @@ const IndexStyleSheet = StyleSheet.create({
         backgroundColor:'white',
         paddingBottom:30,
         paddingTop:20,
-        position:'relative',
     },
     activeBtn:{
         borderRadius:50,
