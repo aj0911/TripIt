@@ -14,6 +14,7 @@ import MyTripScreen from './Screens/MyTripScreens/MyTripScreens'
 import UserScreen from './Screens/UserScreens/UserScreen'
 import NotificationScreen from './Screens/NotificationScreen/NotificationScreen'
 import FavScreen from './Screens/FavScreen/FavScreen'
+import BottomNav from './Components/BottomNav'
 
 const Index = () => {
 

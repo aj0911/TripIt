@@ -16,7 +16,7 @@ const IndexStyleSheet = StyleSheet.create({
         justifyContent:'space-between',
         alignItems:'center',
         width:'100%',
-        elevation:20,
+        elevation:10,
         shadowColor: 'black',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.5,

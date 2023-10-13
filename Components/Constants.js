@@ -388,7 +388,7 @@ const Data = [
           location: "Hamilton Island, Queensland",
           rating: 4.8,
           priceRange: "$$$",
-          hotelImage: "https://source.unsplash.com/800x600/?qualia",
+          hotelImage: "https://source.unsplash.com/800x600/hamilton-island",
         },
         {
           name: "Southern Ocean Lodge",

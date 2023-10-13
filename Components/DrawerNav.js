@@ -69,7 +69,7 @@ const DrawerNav = ({setDrawerOpen,animation,startAnimation,naviagation}) => {
         <View style={IndexStyleSheet.optionView}>
           {
             navBars.map((nav,index)=>(
-              <TouchableOpacity onPress={()=>naviagation.navigate(nav.navigate)} key={index} style={{...IndexStyleSheet.box,borderBottomWidth:(index===3)?.3:0}}>
+              <TouchableOpacity onPress={()=>{setDrawerOpen(false);startAnimation();naviagation.navigate(nav.navigate)}} key={index} style={{...IndexStyleSheet.box,borderBottomWidth:(index===3)?.3:0}}>
                 <View style={IndexStyleSheet.box.view}>
                   <Ionicons style={{backgroundColor:nav.color,padding:5,borderRadius:30}} size={20} color={Colors.bgCol} name={nav.icon}/>
                   <Text style={IndexStyleSheet.box.text}>{nav.text}</Text>
