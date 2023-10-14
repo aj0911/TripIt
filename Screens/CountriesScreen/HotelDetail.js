@@ -42,7 +42,7 @@ const HotelDetail = ({navigation,route}) => {
             <Text style={{fontFamily:'Regular',fontSize:12,color:Colors.navCol,marginBottom:10,paddingRight:20}}>{'Deluxe Room - Spacious and elegantly furnished room with a king-size bed and stunning city views.\n- Rooftop Bar with Panoramic Views\nFitness Center with State-of-the-Art Equipment\nSpa and Wellness Center Offering Relaxing Treatments\nA wonderful stay! The staff was attentive and the room was immaculate.'}</Text>
             <Text style={{fontFamily:'Medium',fontSize:16,paddingRight:20}}>Images</Text>
             <ScrollView horizontal>
-                <View style={{flexDirection:'row',width:'100%',gap:10,marginTop:10,marginBottom:10}}>
+                <View style={{flexDirection:'row',width:'100%',gap:10,marginTop:10,marginBottom:10,paddingRight:20}}>
                     {
                         [1,2,3,4,5,6,7,8,9,10].map((e,i)=>(
                             <Image key={i} style={{width:100,height:100,borderRadius:10}} source={{uri:`https://source.unsplash.com/800x600/?hotel-room-${e}`}} />
@@ -78,7 +78,7 @@ const HotelDetail = ({navigation,route}) => {
                             <Text style={{fontFamily:'Medium',fontSize:12,color:Colors.navCol}}>{route.params.hotel.rating} (512 Reviews)</Text>
                         </View>
                     </View>
-                    <TouchableOpacity style={{backgroundColor:Colors.mainCol,padding:10,borderRadius:50}}>
+                    <TouchableOpacity onPress={()=>navigation.navigate('Booking')} style={{backgroundColor:Colors.mainCol,padding:10,borderRadius:50}}>
                         <Text style={{fontFamily:'Medium',fontSize:14,color:Colors.bgCol}}>Book Now</Text>
                     </TouchableOpacity>
                 </View>:
@@ -88,6 +88,9 @@ const HotelDetail = ({navigation,route}) => {
                     <StarComponent size={20} value={valueStar} onPressStar={true} setValueStar={setValueStar}/>
                     <Text style={{fontFamily:'Medium',fontSize:14,marginTop:10}}>Describe your experience</Text>
                     <TextInput placeholder='Write Here...' style={{fontFamily:'Medium',fontSize:12,color:Colors.navCol,borderColor:Colors.navCol,borderBottomWidth:.5,width:'100%',paddingBottom:10,paddingTop:10}} multiline />
+                    <TouchableOpacity style={{backgroundColor:Colors.mainCol,padding:10,borderRadius:50,marginTop:20}}>
+                        <Text style={{fontFamily:'Medium',fontSize:14,color:Colors.bgCol}}>Post Review</Text>
+                    </TouchableOpacity>
                 </View>
             }
         </View>
