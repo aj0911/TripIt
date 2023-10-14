@@ -1,4 +1,3 @@
-import { View, Text } from 'react-native'
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import {NavigationContainer} from '@react-navigation/native'
@@ -14,7 +13,6 @@ import MyTripScreen from './Screens/MyTripScreens/MyTripScreens'
 import UserScreen from './Screens/UserScreens/UserScreen'
 import NotificationScreen from './Screens/NotificationScreen/NotificationScreen'
 import FavScreen from './Screens/FavScreen/FavScreen'
-import BottomNav from './Components/BottomNav'
 import TourDetails from './Screens/CountriesScreen/TourDetails'
 import HotelDetail from './Screens/CountriesScreen/HotelDetail'
 

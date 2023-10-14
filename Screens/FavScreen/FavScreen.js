@@ -36,7 +36,7 @@ const FavScreen = ({navigation,route}) => {
             Data.slice(0,5).map((country,index)=>{
               const hotel = country.hotels[country.hotels.length-1];
               return (
-              <TouchableOpacity style={FavStyleSheet.card} key={index}>
+              <TouchableOpacity onPress={()=>navigation.navigate('HotelDetails',{country:country.country,hotel})} style={FavStyleSheet.card} key={index}>
                 <View style={{flexDirection:'row',justifyContent:'flex-start',alignItems:'flex-start',gap:10}}>
                   <Image style={{height:100,width:100,borderRadius:10}} source={{uri:hotel.hotelImage}} />
                   <View style={FavStyleSheet.cardView}>

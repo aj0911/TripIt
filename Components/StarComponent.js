@@ -3,8 +3,9 @@ import React from 'react'
 import IndexStyleSheet from '../Index.Style'
 import { Ionicons } from '@expo/vector-icons'
 import Colors from '../assets/Colors'
+import { TouchableOpacity } from 'react-native-gesture-handler'
 
-const StarComponent = ({size ,value}) => {
+const StarComponent = ({size ,value,setValueStar,onPressStar=false}) => {
     const star = ()=>{
         let arr = [false,false,false,false,false];
         const ending = Math.floor(value);
@@ -17,7 +18,9 @@ const StarComponent = ({size ,value}) => {
     <View style={IndexStyleSheet.starComponent}>
         {
             star().map((val,index)=>(
-                <Ionicons key={index} name='star' size={size} color={(val)?Colors.starColor:Colors.navCol} />
+                <TouchableOpacity key={index} onPress={(!onPressStar)?()=>{}:()=>setValueStar(index+1)}>
+                    <Ionicons name='star' size={size} color={(val)?Colors.starColor:Colors.navCol} />
+                </TouchableOpacity>
             ))
         }
     </View>

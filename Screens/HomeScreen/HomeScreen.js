@@ -62,7 +62,7 @@ const HomeScreen = ({navigation,route}) => {
                             <Text style={HomeStyleSheet.cardView.text}>{`Say yes to ${country.hotels[0].name}, ${country.hotels[0].location}`}</Text>
                             <View style={HomeStyleSheet.cardView.box}>
                               <Text style={HomeStyleSheet.cardView.title}>Book your holiday package today</Text>
-                              <TouchableOpacity>
+                              <TouchableOpacity onPress={()=>navigation.navigate('HotelDetails',{country:country.country,hotel:country.hotels[0]})}>
                                 <Ionicons name='arrow-forward' color={Colors.bgCol} style={HomeStyleSheet.cardView.arrow}  size={20} />
                               </TouchableOpacity>
                             </View>
@@ -152,7 +152,7 @@ const HomeScreen = ({navigation,route}) => {
                             <StarComponent value={hotel.rating} size={14}/>
                             <Text style={HomeStyleSheet.searchViewCard.text}>{hotel.rating} ({Math.round((index+5)*hotel.rating*10)} Reviews)</Text>
                           </View>
-                          <TouchableOpacity>
+                          <TouchableOpacity onPress={()=>navigation.navigate('HotelDetails',{country:country.country,hotel})}>
                             <Text style={{fontFamily:'Medium',fontSize:12,marginTop:10,color:Colors.secCol}}>Show More</Text>
                           </TouchableOpacity>
                         </View>
