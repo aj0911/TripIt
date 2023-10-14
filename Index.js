@@ -15,6 +15,8 @@ import UserScreen from './Screens/UserScreens/UserScreen'
 import NotificationScreen from './Screens/NotificationScreen/NotificationScreen'
 import FavScreen from './Screens/FavScreen/FavScreen'
 import BottomNav from './Components/BottomNav'
+import TourDetails from './Screens/CountriesScreen/TourDetails'
+import HotelDetail from './Screens/CountriesScreen/HotelDetail'
 
 const Index = () => {
 
@@ -60,6 +62,13 @@ const Index = () => {
       return <ScreenComponent Component={FavScreen} {...rest}/>
     }
     
+    const TourDetailsView = ({...rest})=>{
+      return <ScreenComponent Component={TourDetails} {...rest}/>
+    }
+
+    const HotelDetailsView = ({...rest})=>{
+      return <ScreenComponent Component={HotelDetail} {...rest}/>
+    }
 
   return (
     <>
@@ -75,6 +84,8 @@ const Index = () => {
               <Stack.Screen name='Notification' component={NotificationView}/>
               <Stack.Screen name='Users' component={UserScreenView}/>
               <Stack.Screen name='Fav' component={FavScreenView}/>
+              <Stack.Screen name='TourDetails' component={TourDetailsView}/>
+              <Stack.Screen name='HotelDetails' component={HotelDetailsView}/>
           </Stack.Navigator>
       </NavigationContainer>
     </>

@@ -29,9 +29,76 @@ const CountryStyleSheet = StyleSheet.create({
     cardImageView:{
         padding:20,
         height:150,
-        
         justifyContent:'flex-end',
         alignItems:'flex-start',
+    },
+    detailCards:{
+        padding:20,
+        width:'100%',
+        justifyContent:'center',
+        alignItems:'center',
+        gap:20
+    },
+    detailCard:{
+        textView:{
+            title:{
+                width:'100%',
+                fontFamily:'Medium',
+                fontSize:14,
+                color:Colors.mainCol,
+                textAlignVertical:'center'
+            },
+            text:{
+                fontFamily:'Regular',
+                fontSize:12,
+                marginBottom:5,
+                color:Colors.navCol
+            },
+            justifyContent:"flex-start",
+            alignItems:'flex-start',
+            width:'100%',
+            padding:10,
+        },
+        backgroundColor:Colors.bgCol,
+        elevation:10,
+        width:'100%',
+        borderRadius:10,
+        overflow:'hidden',
+        heart:{
+            position:'absolute',
+            top:230,
+            right:20
+        }
+    },
+    scrollCountry:{
+        paddingLeft:20,
+        paddingRight:20,
+        flexDirection:'row',
+        gap:10
+    },
+    textView:{
+        activetext:{
+            fontFamily:'Bold',
+            fontSize:16,
+            color:Colors.mainCol,
+            borderColor:Colors.mainCol,
+            borderBottomWidth:2,
+            paddingBottom:5
+        },
+        text:{
+            fontFamily:'Medium',
+            fontSize:16,
+            color:Colors.navCol,
+        }
+    },
+    bottom:{
+        width:'100%',
+        backgroundColor:Colors.bgCol,
+        elevation:20,
+        padding:20,
+        gap:20,
+        justifyContent:'center',
+        alignItems:'flex-start'
     }
 });
 

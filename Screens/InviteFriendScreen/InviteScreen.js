@@ -30,17 +30,15 @@ const InviteScreen = ({navigation,route}) => {
         <Text style={HomeStyleSheet.header.text}>Invite Friends</Text>
         <View></View>
       </View>
-      <ScrollView style={{width:'100%'}}>
-        <View style={{justifyContent:'center',alignItems:'center',width:'100%',paddingLeft:50,paddingRight:50,paddingTop:20,paddingBottom:20}}>
-          <Text style={{fontFamily:'Bold',color:Colors.mainCol,fontSize:25,textAlign:'center',width:'100%',textAlignVertical:'center'}}>Share With Friends</Text>
-          <Text style={{fontFamily:'Regular',color:Colors.navCol,fontSize:12,textAlign:'center',width:'100%',textAlignVertical:'center',marginBottom:20}}>Because of you, I laugh a little harder, smile a little brighter, and live a little better. Join me for a trip</Text>
-          <Image style={{width:350,height:200,objectFit:'contain',marginBottom:20}} source={require('../../assets/Images/invite.png')}/>
-          <TouchableOpacity style={AuthStyleSheet.boxView.btn}>
-                <Text style={AuthStyleSheet.boxView.btn.text}>Invite Now</Text>
-                <Ionicons name='arrow-forward' size={20} color={Colors.bgCol} style={{backgroundColor:Colors.mainColLight,borderRadius:35,padding:10}}/>
-          </TouchableOpacity>
-        </View>
-      </ScrollView>
+      <View style={{justifyContent:'center',alignItems:'center',width:'100%',paddingLeft:50,paddingRight:50,paddingTop:20,paddingBottom:20}}>
+        <Text style={{fontFamily:'Bold',color:Colors.mainCol,fontSize:25,textAlign:'center',width:'100%',textAlignVertical:'center'}}>Share With Friends</Text>
+        <Text style={{fontFamily:'Regular',color:Colors.navCol,fontSize:12,textAlign:'center',width:'100%',textAlignVertical:'center',marginBottom:20}}>Because of you, I laugh a little harder, smile a little brighter, and live a little better. Join me for a trip</Text>
+        <Image style={{width:350,height:200,objectFit:'contain',marginBottom:20}} source={require('../../assets/Images/invite.png')}/>
+        <TouchableOpacity style={AuthStyleSheet.boxView.btn}>
+              <Text style={AuthStyleSheet.boxView.btn.text}>Invite Now</Text>
+              <Ionicons name='arrow-forward' size={20} color={Colors.bgCol} style={{backgroundColor:Colors.mainColLight,borderRadius:35,padding:10}}/>
+        </TouchableOpacity>
+      </View>
       <BottomNav navigation={navigation} route={route}/>
     </View>
   )

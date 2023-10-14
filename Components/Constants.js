@@ -52,7 +52,7 @@ const Data = [
       ]
     },
     {
-      country: "United States",
+      country: "America",
       countryImage: "https://source.unsplash.com/800x600/?usa",
       hotels: [
         {
@@ -383,13 +383,6 @@ const Data = [
       country: "Australia",
       countryImage: "https://source.unsplash.com/800x600/?australia",
       hotels: [
-        {
-          name: "Qualia",
-          location: "Hamilton Island, Queensland",
-          rating: 4.8,
-          priceRange: "$$$",
-          hotelImage: "https://source.unsplash.com/800x600/hamilton-island",
-        },
         {
           name: "Southern Ocean Lodge",
           location: "Kangaroo Island, South Australia",

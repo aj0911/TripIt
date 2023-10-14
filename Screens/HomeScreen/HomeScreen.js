@@ -40,7 +40,7 @@ const HomeScreen = ({navigation,route}) => {
           <View horizontal style={HomeStyleSheet.countriesView}>
               {
                   Data.map((country,index)=>(
-                      <TouchableOpacity key={index} style={HomeStyleSheet.countryView}>
+                      <TouchableOpacity onPress={()=>navigation.navigate('TourDetails',country)} key={index} style={HomeStyleSheet.countryView}>
                           <Image style={{width: Constants.FULLVIEW_WIDTH/3, height: 100,objectFit:'cover'}} source={{uri:country.countryImage}}/>
                           <Text style={HomeStyleSheet.countryView.text}>{country.country}</Text>
                       </TouchableOpacity>
@@ -79,7 +79,7 @@ const HomeScreen = ({navigation,route}) => {
           <View horizontal style={HomeStyleSheet.countriesView}>
               {
                   Data.reverse().map((country,index)=>(
-                      <TouchableOpacity key={index} style={{...HomeStyleSheet.countryView,width:Constants.FULLVIEW_WIDTH/2.5}}>
+                      <TouchableOpacity onPress={()=>navigation.navigate('TourDetails',country)} key={index} style={{...HomeStyleSheet.countryView,width:Constants.FULLVIEW_WIDTH/2.5}}>
                           <Image style={{width: Constants.FULLVIEW_WIDTH/2.5, height: 200,objectFit:'cover'}} source={{uri:country.hotels[country.hotels.length-1].hotelImage}}/>
                           <View style={{paddingLeft:10,paddingTop:10,width:'100%',justifyContent:'center',alignItems:'flex-start',gap:5}}>
                             <StarComponent value={country.hotels[0].rating} size={14}/>

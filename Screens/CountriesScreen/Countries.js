@@ -5,7 +5,7 @@ import CountryStyleSheet from './Countries.Style'
 import HomeStyleSheet from '../HomeScreen/Home.Style'
 import DrawerNav from '../../Components/DrawerNav'
 import { Ionicons } from '@expo/vector-icons'
-import Constants, { Data } from '../../Components/Constants'
+import Constants, { Data, topPlaces } from '../../Components/Constants'
 import { ScrollView } from 'react-native-gesture-handler'
 
 const Countries = ({navigation,route}) => {
@@ -32,7 +32,7 @@ const Countries = ({navigation,route}) => {
         <View style={CountryStyleSheet.countryCardView}>
           {
             Data.map((country,index)=>(
-              <TouchableOpacity key={index} style={CountryStyleSheet.card}>
+              <TouchableOpacity onPress={()=>navigation.navigate('TourDetails',country)} key={index} style={CountryStyleSheet.card}>
                 <ImageBackground imageStyle={{opacity:.6,backgroundColor:'rgb(0,0,0)',}} style={CountryStyleSheet.cardImageView} source={{uri:country.countryImage}}>
                   <Text style={CountryStyleSheet.card.title}>{country.country}</Text>
                   <Text style={CountryStyleSheet.card.text}>{country.hotels[0].location}</Text>
