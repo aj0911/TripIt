@@ -17,11 +17,14 @@ import TourDetails from './Screens/CountriesScreen/TourDetails'
 import HotelDetail from './Screens/CountriesScreen/HotelDetail'
 import Booking from './Screens/BookingScreens/Booking'
 import BookingDetails from './Screens/BookingScreens/BookingDetails'
+import Toast from 'react-native-toast-message'
+import { useSelector } from 'react-redux'
+import LoginWarning from './Screens/AditionalScreens/LoginWarning'
 
 const Index = () => {
 
     const Stack = createStackNavigator();
-    
+    const authReducer = useSelector(state=>state.auth)
     //Views
     const IntroView = ({...rest})=>{
         return <ScreenComponent Component={Intro} {...rest}/>
@@ -31,7 +34,6 @@ const Index = () => {
         <AuthScreen {...rest}/>
       </ScrollView>
     }
-
     const SearchView = ({...rest})=>{
       return (
         <ScrollView>
@@ -45,7 +47,6 @@ const Index = () => {
     const CountryView = ({...rest})=>{
       return <ScreenComponent Component={Countries} {...rest}/>
     }
-
     const InviteView = ({...rest})=>{
       return <ScreenComponent Component={InviteScreen} {...rest}/>
     }
@@ -61,11 +62,9 @@ const Index = () => {
     const FavScreenView = ({...rest})=>{
       return <ScreenComponent Component={FavScreen} {...rest}/>
     }
-    
     const TourDetailsView = ({...rest})=>{
       return <ScreenComponent Component={TourDetails} {...rest}/>
     }
-
     const HotelDetailsView = ({...rest})=>{
       return <ScreenComponent Component={HotelDetail} {...rest}/>
     }
@@ -75,11 +74,10 @@ const Index = () => {
     const BookingDetailView = ({...rest})=>{
       return <ScreenComponent Component={BookingDetails} {...rest}/>
     }
-
   return (
     <>
       <NavigationContainer>
-          <Stack.Navigator initialRouteName='Intro' screenOptions={{headerShown:false}}>
+          <Stack.Navigator initialRouteName={(authReducer.isAuth)?'Home':'Intro'} screenOptions={{headerShown:false}}>
               <Stack.Screen name='Intro' component={IntroView}/>
               <Stack.Screen name='Login' component={AuthView}/>
               <Stack.Screen name='Search' component={SearchView}/>
@@ -96,6 +94,7 @@ const Index = () => {
               <Stack.Screen name='BookingDetails' component={BookingDetailView}/>
           </Stack.Navigator>
       </NavigationContainer>
+      <Toast/>
     </>
       
   )

@@ -8,6 +8,10 @@ import { Ionicons } from '@expo/vector-icons'
 import Constants from '../../Components/Constants'
 import Colors from '../../assets/Colors'
 import { ScrollView } from 'react-native-gesture-handler'
+import { useSelector } from 'react-redux'
+import AuthStyleSheet from '../AuthenticationScreen/AuthScreen.Style'
+import { LinearGradient } from 'expo-linear-gradient'
+import LoginWarning from '../AditionalScreens/LoginWarning'
 
 const UserScreen = ({navigation,route}) => {
   const [drawerOpen,setDrawerOpen] = useState(false);
@@ -19,8 +23,12 @@ const UserScreen = ({navigation,route}) => {
           duration:300
       }).start();
   }
-  
+  const authReducer = useSelector(state=>state.auth);
+  const isLogin = authReducer.isAuth
   return (
+    (!isLogin)?
+    <LoginWarning navigation={navigation}/>
+    :
     <View style={{...HomeStyleSheet.home,height:Constants.FULLVIEW_HEIGHT}}>
       <DrawerNav naviagation={navigation} startAnimation={startAnimation} animation={animation} setDrawerOpen={setDrawerOpen}/>
       <View style={HomeStyleSheet.header}>
@@ -35,32 +43,33 @@ const UserScreen = ({navigation,route}) => {
       <ScrollView style={{width:'100%'}}>
         <View style={UserStyleSheet.userView}>
           <TouchableOpacity style={UserStyleSheet.imgView}>
-            <Image style={{width:200,height:200,borderRadius:100}} source={require('../../assets/Images/avatar.jpg')}/>
+            <Image style={{width:200,height:200,borderRadius:100}} source={{uri:authReducer.user.img}}/>
           </TouchableOpacity>
+          
           <View style={UserStyleSheet.profileView}>
             <View style={UserStyleSheet.data}>  
               <Text style={UserStyleSheet.data.field}>Name</Text>
-              <Text style={UserStyleSheet.data.value}>Virat Kohli</Text>
+              <Text style={UserStyleSheet.data.value}>{authReducer.user.name}</Text>
             </View>
             <View style={UserStyleSheet.data}>
               <Text style={UserStyleSheet.data.field}>Email</Text>
-              <Text style={UserStyleSheet.data.value}>indiawinwc23@gmail.com</Text>
+              <Text style={UserStyleSheet.data.value}>{authReducer.user.email}</Text>
             </View>
             <View style={UserStyleSheet.data}>
               <Text style={UserStyleSheet.data.field}>Phone Number</Text>
-              <Text style={UserStyleSheet.data.value}>+01 2345678901</Text>
+              <Text style={UserStyleSheet.data.value}>{authReducer.user.phone}</Text>
             </View>
             <View style={UserStyleSheet.data}>
               <Text style={UserStyleSheet.data.field}>Gender</Text>
-              <Text style={UserStyleSheet.data.value}>Male</Text>
+              <Text style={UserStyleSheet.data.value}>{authReducer.user.gender}</Text>
             </View>
             <View style={UserStyleSheet.data}>
               <Text style={UserStyleSheet.data.field}>Date Of Birth</Text>
-              <Text style={UserStyleSheet.data.value}>09/11/2004</Text>
+              <Text style={UserStyleSheet.data.value}>{authReducer.user.dob}</Text>
             </View>
             <View style={UserStyleSheet.data}>
               <Text style={UserStyleSheet.data.field}>Address</Text> 
-              <Text style={UserStyleSheet.data.value}>123 Royal Street, New Delhi - 110018</Text>
+              <Text style={UserStyleSheet.data.value}>{authReducer.user.address}</Text>
             </View>
           </View>
         </View>

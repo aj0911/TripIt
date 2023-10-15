@@ -1,8 +1,9 @@
 import { View, Text, Image } from 'react-native'
-import React, {  useState } from 'react'
+import React, {  useEffect, useState } from 'react'
 import IntroStyleSheet from './Intro.Style'
 import Colors from '../../assets/Colors'
 import { TouchableOpacity } from 'react-native-gesture-handler'
+import { useDispatch, useSelector } from 'react-redux'
 
 const Intro = ({navigation}) => {
 
@@ -25,7 +26,12 @@ const Intro = ({navigation}) => {
     ]
 
     const [page,setPage] = useState(0);
+    const dispatch  = useDispatch();
+    const introReducer = useSelector(state=>state.intro)
 
+    useEffect(()=>{
+        if(!introReducer.isIntro)navigation.navigate('Home');
+    },[])
   return (
     <View style={IntroStyleSheet.Intro}>
       <View style={IntroStyleSheet.logo}>
@@ -48,13 +54,13 @@ const Intro = ({navigation}) => {
       <View style={{...IntroStyleSheet.pagination,justifyContent:(page>=cards.length-1)?'center':'space-between'}}>
         {
             (page>=cards.length-1)?'':
-            <TouchableOpacity  onPress={()=>navigation.navigate('Home')}>
+            <TouchableOpacity  onPress={()=>{dispatch({type:'done'});navigation.navigate('Home');}}>
                 <Text style={IntroStyleSheet.pagination.text}>Skip</Text>
             </TouchableOpacity>
         }
         {
             (page>=cards.length-1)?
-            <TouchableOpacity onPress={()=>navigation.navigate('Login')}>
+            <TouchableOpacity onPress={()=>{dispatch({type:'done'});navigation.navigate('Login');}}>
                 <Text style={IntroStyleSheet.pagination.text}>Let's Go!</Text>
             </TouchableOpacity>
             :

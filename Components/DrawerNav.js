@@ -5,9 +5,11 @@ import { Ionicons } from '@expo/vector-icons'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import Constants from './Constants'
 import Colors from '../assets/Colors'
+import { useDispatch, useSelector } from 'react-redux'
+import Toast from 'react-native-toast-message'
 
 const DrawerNav = ({setDrawerOpen,animation,startAnimation,naviagation}) => {
-
+  const authRed = useSelector(state=>state.auth)
   const navBars = [
     {
       icon:'notifications',
@@ -40,13 +42,13 @@ const DrawerNav = ({setDrawerOpen,animation,startAnimation,naviagation}) => {
       navigate:'Users'
     },
     {
-      icon:'log-out',
-      text:'Log Out',
+      icon:(authRed.isAuth)?'log-out':'log-in',
+      text:(authRed.isAuth)?'Log Out':'Log In',
       color:'#A19A8F',
-      navigate:'Login'
+      navigate:(authRed.isAuth)?'Home':'Login'
     },
   ]
-
+  const dispatch = useDispatch();
   return (
     <Animated.View style={[{...IndexStyleSheet.drawerNav},{
         transform:[{translateX:animation.interpolate({
@@ -69,7 +71,14 @@ const DrawerNav = ({setDrawerOpen,animation,startAnimation,naviagation}) => {
         <View style={IndexStyleSheet.optionView}>
           {
             navBars.map((nav,index)=>(
-              <TouchableOpacity onPress={()=>{setDrawerOpen(false);startAnimation();naviagation.navigate(nav.navigate)}} key={index} style={{...IndexStyleSheet.box,borderBottomWidth:(index===3)?.3:0}}>
+              <TouchableOpacity onPress={()=>{setDrawerOpen(false);startAnimation();
+              if(nav.text==='Log Out'){dispatch({type:'logout'});Toast.show({
+                text1:'Success',
+                text2: `Logout Successfully`,
+                visibilityTime:3000,
+                autoHide:true,
+                type:'success'
+            });};naviagation.navigate(nav.navigate)}} key={index} style={{...IndexStyleSheet.box,borderBottomWidth:(index===3)?.3:0}}>
                 <View style={IndexStyleSheet.box.view}>
                   <Ionicons style={{backgroundColor:nav.color,padding:5,borderRadius:30}} size={20} color={Colors.bgCol} name={nav.icon}/>
                   <Text style={IndexStyleSheet.box.text}>{nav.text}</Text>

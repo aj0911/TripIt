@@ -3,7 +3,10 @@ import * as SplashScreen from 'expo-splash-screen'
 import { useCallback } from 'react';
 import 'react-native-gesture-handler';
 import Index from './Index';
-import BottomNav from './Components/BottomNav';
+import store from './Store';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import { persistStore } from 'redux-persist';
 
 export default function App() {
 
@@ -27,7 +30,11 @@ export default function App() {
 
   return (
     <>
-      <Index/>
+      <Provider store={store}>
+          <PersistGate persistor={persistStore(store)}>
+              <Index/>
+          </PersistGate>
+      </Provider>
     </>
   )
 }
