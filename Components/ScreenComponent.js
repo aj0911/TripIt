@@ -5,9 +5,7 @@ const ScreenComponent = ({Component,...rest}) => {
   return (
     <View style={{marginTop:(Platform.OS==='android')?StatusBar.currentHeight:0}}>
       <SafeAreaView>
-        <ScrollView>
             <Component {...rest}/>
-        </ScrollView>
       </SafeAreaView>
     </View>
   )

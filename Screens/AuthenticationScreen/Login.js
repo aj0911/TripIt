@@ -31,7 +31,8 @@ const Login = ({name,setName,navigation}) => {
     }
 
     if(name===Constants.LOGIN_SCREEN){
-     return (<View style={AuthStyleSheet.boxView}>
+     return (
+     <View style={AuthStyleSheet.boxView}>
         <View style={AuthStyleSheet.sideDummyView}/>
         <View style={{...AuthStyleSheet.sideDummyView,borderRadius:20,top:'-10%',width:'95%'}}/>
         <Text style={AuthStyleSheet.boxView.title}>Sign In</Text>
@@ -44,8 +45,8 @@ const Login = ({name,setName,navigation}) => {
             <Text style={AuthStyleSheet.boxView.btn.text}>Sign In</Text>
             <Ionicons name='arrow-forward' size={20} color={Colors.bgCol} style={{backgroundColor:Colors.mainColLight,borderRadius:35,padding:10}}/>
         </TouchableOpacity>
-    </View>)
-    }
+    </View>
+    )}
     else if(name===Constants.REGISTER_SCREEN){
     return (
         <View style={AuthStyleSheet.boxView}>
