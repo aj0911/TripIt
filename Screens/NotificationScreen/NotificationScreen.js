@@ -7,6 +7,8 @@ import DrawerNav from '../../Components/DrawerNav'
 import { Ionicons } from '@expo/vector-icons'
 import Constants, { tourNotifications } from '../../Components/Constants'
 import { ScrollView } from 'react-native-gesture-handler'
+import { useSelector } from 'react-redux'
+import LoginWarning from '../AditionalScreens/LoginWarning'
 
 const NotificationScreen = ({navigation,route}) => {
   const [drawerOpen,setDrawerOpen] = useState(false);
@@ -18,7 +20,9 @@ const NotificationScreen = ({navigation,route}) => {
             duration:300
         }).start();
     }
+    const authReducer = useSelector(state=>state.auth);
   return (
+    (authReducer.isAuth)?
     <View style={{...HomeStyleSheet.home,height:Constants.FULLVIEW_HEIGHT}}>
       <DrawerNav naviagation={navigation} startAnimation={startAnimation} animation={animation} setDrawerOpen={setDrawerOpen}/>
       <View style={HomeStyleSheet.header}>
@@ -33,7 +37,7 @@ const NotificationScreen = ({navigation,route}) => {
           {
             tourNotifications.map((notification,index)=>(
               <TouchableOpacity key={index} style={NotificationStyleSheet.card}>
-                <Image style={{width:70,height:70,borderRadius:35}} source={notification.imageUrl}/>
+                <Image style={{width:70,height:70,borderRadius:35}} source={{uri:authReducer.user.img}}/>
                 <View>
                   <Text style={NotificationStyleSheet.card.text}>{notification.notificationText}</Text>
                   <Text style={NotificationStyleSheet.card.date}>{notification.dateTime}</Text>
@@ -44,7 +48,8 @@ const NotificationScreen = ({navigation,route}) => {
         </View>
       </ScrollView>
       <BottomNav navigation={navigation} route={route}/>
-    </View>
+    </View>:
+    <LoginWarning navigation={navigation}/>
   )
 }
 

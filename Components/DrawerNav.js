@@ -61,13 +61,16 @@ const DrawerNav = ({setDrawerOpen,animation,startAnimation,naviagation}) => {
               <Ionicons size={35} name='close'/>
           </TouchableOpacity>
         </View>
-        <View style={{width:'100%',justifyContent:'flex-start',alignItems:'center',marginTop:30}}>
-          <TouchableOpacity style={{width:100,height:100,borderRadius:100,overflow:'hidden'}}>
-            <Image style={{width:100,height:100,borderRadius:100,objectFit:'cover'}} source={require('../assets/Images/avatar.jpg')}/>
-          </TouchableOpacity>
-          <Text style={IndexStyleSheet.drawerNav.name}>Virat Kohli</Text>
-          <Text style={IndexStyleSheet.drawerNav.email}>indiawonwc@gmail.com</Text>
-        </View>
+        {
+          (!authRed.isAuth)?'':
+          <View style={{width:'100%',justifyContent:'flex-start',alignItems:'center',marginTop:30}}>
+            <TouchableOpacity style={{width:100,height:100,borderRadius:100,overflow:'hidden'}}>
+              <Image style={{width:100,height:100,borderRadius:100,objectFit:'cover'}} source={{uri:authRed.user.img}}/>
+            </TouchableOpacity>
+            <Text style={IndexStyleSheet.drawerNav.name}>{authRed.user.name}</Text>
+            <Text style={IndexStyleSheet.drawerNav.email}>{authRed.user.email}</Text>
+          </View>
+        }
         <View style={IndexStyleSheet.optionView}>
           {
             navBars.map((nav,index)=>(

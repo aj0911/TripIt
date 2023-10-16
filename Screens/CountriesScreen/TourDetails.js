@@ -8,6 +8,8 @@ import Constants, { Data, topPlaces } from '../../Components/Constants'
 import Colors from '../../assets/Colors'
 import StarComponent from '../../Components/StarComponent'
 import CountryStyleSheet from './Countries.Style'
+import { useDispatch, useSelector } from 'react-redux'
+import Toast from 'react-native-toast-message'
 
 const TourDetails = ({navigation,route}) => {
   const [drawerOpen,setDrawerOpen] = useState(false);
@@ -22,6 +24,25 @@ const TourDetails = ({navigation,route}) => {
   const handleNavClick = (place)=>{
     Data.forEach(country=>{
         if(country.country===place)navigation.navigate('TourDetails',country)
+    })
+  }
+  const dispatch = useDispatch();
+  const authReducer = useSelector(state=>state.auth);
+  const handleHeartClick = (hotel)=>{
+    if(!authReducer.isAuth){
+        Toast.show({
+            type:'error',
+            text1:'Warning',
+            text2:'User not Signed Up',
+            visibilityTime:3000
+        });return;
+    }
+    dispatch({type:'addFav',payload:{hotel,user:authReducer.user}})
+    Toast.show({
+        type:'success',
+        text1:'Success',
+        text2:'Hotel Added to Favorite List',
+        visibilityTime:3000
     })
   }
   return (
@@ -59,7 +80,7 @@ const TourDetails = ({navigation,route}) => {
                                 <Text style={CountryStyleSheet.detailCard.textView.text}>{hotel.rating} ({Math.round((hotel.rating*(index+1)*100))} Reviews)</Text>
                             </View>
                         </View>
-                        <TouchableOpacity style={CountryStyleSheet.detailCard.heart}><Ionicons  style={{backgroundColor:Colors.mainCol,padding:10,borderRadius:50}} color={Colors.bgCol} size={20} name='heart'/></TouchableOpacity>
+                        <TouchableOpacity onPress={()=>handleHeartClick(hotel)} style={CountryStyleSheet.detailCard.heart}><Ionicons  style={{backgroundColor:Colors.mainCol,padding:10,borderRadius:50}} color={Colors.bgCol} size={20} name='heart'/></TouchableOpacity>
                     </TouchableOpacity>
                 ))
             }

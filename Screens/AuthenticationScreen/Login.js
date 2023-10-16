@@ -7,11 +7,9 @@ import Colors from '../../assets/Colors'
 import Constants from '../../Components/Constants'
 import Checkbox from 'expo-checkbox';
 import Toast from 'react-native-toast-message'
-import { signInWithEmailAndPassword } from 'firebase/auth'
+import { createUserWithEmailAndPassword, sendPasswordResetEmail, signInWithEmailAndPassword, updateProfile } from 'firebase/auth'
 import { auth } from '../../firebase'
 import { useDispatch, useSelector } from 'react-redux'
-import generateOtp from '../../Components/GenerateOTP'
-import SecuredData from '../../SecuredData'
 
 const Login = ({name,setName,navigation,setLoader}) => {
     const pinRef = {
@@ -24,9 +22,48 @@ const Login = ({name,setName,navigation,setLoader}) => {
     const [loginCredentials,setLoginCredentials] = useState({email:'',password:''});
     const [registerCredentials,setRegisterCredentials] = useState({name:'',email:'',password:'',phoneNumber:'',isAgree:false});
     const [pinVal,setPinVal] = useState({});
-    const [genOtp,setGenOtp] = useState('');
+    const [forgotEmail,setForgotEmail]=useState('');
     const handleForgot = ()=>{
-        setName(Constants.VERIFY_SCREEN);
+        if(forgotEmail===''){
+            Toast.show({
+                text1:'Error',
+                text2: `Email must be Required`,
+                visibilityTime:3000,
+                autoHide:true,
+                type:'error'
+            })
+        }else{
+            if(forgotEmail.includes('@') && forgotEmail.includes('.com')){
+                setLoader(true);
+                sendPasswordResetEmail(auth,forgotEmail).then(()=>{
+                    Toast.show({
+                        text1:'Success',
+                        text2: `Reset Link Sent to your email`,
+                        visibilityTime:3000,
+                        autoHide:true,
+                        type:'success'
+                    })
+                    setName(Constants.LOGIN_SCREEN);
+                }).catch((err)=>{
+                    Toast.show({
+                        text1:'Error',
+                        text2: `${err}`,
+                        visibilityTime:3000,
+                        autoHide:true,
+                        type:'error'
+                    })
+                }).finally(()=>setLoader(false));
+            }
+            else{
+                Toast.show({
+                    text1:'Error',
+                    text2: `Email must be in correct format`,
+                    visibilityTime:3000,
+                    autoHide:true,
+                    type:'error'
+                })
+            }
+        }
     }
 
     const handleVerify =()=>{
@@ -58,7 +95,6 @@ const Login = ({name,setName,navigation,setLoader}) => {
                     dispatch({type:'login',payload:{
                         email:res.user.email,
                         name:res.user.displayName,
-                        phone:res.user.phoneNumber,
                         img:res.user.photoURL
                     }})
                     navigation.navigate('Home');
@@ -99,7 +135,38 @@ const Login = ({name,setName,navigation,setLoader}) => {
         else{
             if(registerCredentials.email.includes('@') && registerCredentials.email.includes('.com')){
                 setLoader(true);
-                const crack = generateOtp(6);
+                createUserWithEmailAndPassword(auth, registerCredentials.email, registerCredentials.password).then((user)=>{
+                    const photoURL = `https://source.unsplash.com/800x600/?avatar-${Math.random()}`;
+                    updateProfile(user.user,{
+                        displayName:registerCredentials.name,
+                        photoURL,
+                    }).then((res)=>{
+                        dispatch({type:'login',payload:{
+                            email:registerCredentials.email,
+                            name:registerCredentials.name,
+                            img:photoURL
+                        }})
+                        Toast.show({
+                            text1:'Success',
+                            text2: `Registered Successfully`,
+                            visibilityTime:3000,
+                            autoHide:true,
+                            type:'success'
+                        }) 
+                        setLoader(false);
+                        navigation.navigate('Home')
+                    })
+                }).catch((err)=>{
+                    console.log(err)
+                    Toast.show({
+                        text1:'Error',
+                        text2: `${err}`,
+                        visibilityTime:3000,
+                        autoHide:true,
+                        type:'error'
+                    }) 
+                    setLoader(false);
+                })
             }
             else{
                 Toast.show({
@@ -157,7 +224,7 @@ const Login = ({name,setName,navigation,setLoader}) => {
             <View style={AuthStyleSheet.sideDummyView}/>
             <View style={{...AuthStyleSheet.sideDummyView,borderRadius:20,top:'-10%',width:'95%'}}/>
             <Text style={AuthStyleSheet.boxView.title}>Forgot Password?</Text>
-            <TextInput inputMode='email' placeholder='Enter Email Address' style={AuthStyleSheet.boxView.textInput}/>
+            <TextInput onChangeText={Text=>setForgotEmail(Text)} inputMode='email' placeholder='Enter Email Address' style={AuthStyleSheet.boxView.textInput}/>
             <TouchableOpacity onPress={()=>setName(Constants.REGISTER_SCREEN)} >
                 <Text style={{...AuthStyleSheet.boxView.text,color:'black'}}>Don't have an account?<Text style={{color:Colors.mainCol,fontFamily:'Medium'}}> Register Now</Text></Text>
             </TouchableOpacity>

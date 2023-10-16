@@ -2,6 +2,7 @@
 import { initializeApp } from "firebase/app";
 import SecuredData from "./SecuredData";
 import {GoogleAuthProvider, getAuth} from 'firebase/auth'
+import { getDatabase } from 'firebase/database'
 
 
 const firebaseConfig = {
@@ -16,6 +17,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-const googleProvider = new GoogleAuthProvider()
+const googleProvider = new GoogleAuthProvider();
+const db = getDatabase(app)
 
-export {auth,googleProvider};
+export {auth,googleProvider,db};

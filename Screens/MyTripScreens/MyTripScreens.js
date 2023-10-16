@@ -1,5 +1,5 @@
 import { View, Text, TouchableOpacity, Animated, Image } from 'react-native'
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import BottomNav from '../../Components/BottomNav'
 import HomeStyleSheet from '../HomeScreen/Home.Style'
 import MyTripStyleSheet from './MyTrip.Style'
@@ -10,6 +10,10 @@ import Colors from '../../assets/Colors'
 import StarComponent from '../../Components/StarComponent'
 import AuthStyleSheet from '../AuthenticationScreen/AuthScreen.Style'
 import { ScrollView } from 'react-native-gesture-handler'
+import { onValue, ref } from 'firebase/database'
+import { db } from '../../firebase'
+import Toast from 'react-native-toast-message'
+import { useSelector } from 'react-redux'
 
 const MyTripScreens = ({navigation,route}) => {
   const [drawerOpen,setDrawerOpen] = useState(false);
@@ -21,7 +25,30 @@ const MyTripScreens = ({navigation,route}) => {
           duration:300
       }).start();
   }
-  
+  const [data,setData] = useState([]);
+  const authReducer = useSelector(state=>state.auth); 
+  const getBookings = ()=>{
+    onValue(ref(db,'booking'),(snapshot)=>{
+      const res = Object.values(snapshot.val());
+      const arr = res.filter(key=>key.email===authReducer.user.email);
+      setData(arr);
+    },(err)=>{
+      Toast.show({
+        text1:'Error',
+        text2: `${err}`,
+        visibilityTime:3000,
+        autoHide:true,
+        type:'error'
+    }) 
+    })
+  }
+  useEffect(()=>{
+    if(!authReducer.isAuth){
+      navigation.navigate('Login')
+      return;
+    }
+    getBookings();
+  },[])
   return (
     <View style={{...HomeStyleSheet.home,height:Constants.FULLVIEW_HEIGHT}}>
       <DrawerNav naviagation={navigation} startAnimation={startAnimation} animation={animation} setDrawerOpen={setDrawerOpen}/>
@@ -35,23 +62,23 @@ const MyTripScreens = ({navigation,route}) => {
       <ScrollView style={{width:'100%'}}>
         <View style={MyTripStyleSheet.tripViewCards}>
           {
-            Object.keys(topPlaces).map((places,index)=>{
-              const place = topPlaces[places];
+            (data.length>0)?
+            data.map((val,index)=>{
               return(
               <View key={index} style={MyTripStyleSheet.card}>
                 <View style={MyTripStyleSheet.topCard}>
-                  <Text style={{fontFamily:'Medium',fontSize:14}}>{places}</Text>
-                  <Text style={{fontFamily:'Regular',fontSize:12,color:Colors.navCol}}>Booking on 15 Jan</Text>
+                  <Text style={{fontFamily:'Medium',fontSize:14}}>{val.country}</Text>
+                  <Text style={{fontFamily:'Regular',fontSize:12,color:Colors.navCol}}>Booking on {(new Date(val.time)).getDate()}/{(new Date(val.time)).getMonth()+1}/{(new Date(val.time)).getFullYear()} </Text>
                 </View>
                 <View style={MyTripStyleSheet.midCard}>
-                  <Image style={{height:50,width:50,borderRadius:25}} source={{uri:place.image}}/>
+                  <Image style={{height:50,width:50,borderRadius:25}} source={{uri:val.hotel.hotelImage}}/>
                   <View>
-                    <Text style={{fontFamily:'Medium',fontSize:14}}>{place.place}</Text>
-                    <Text  style={{fontFamily:'Regular',fontSize:12,color:Colors.navCol}}>16 January - 20 January</Text>
+                    <Text style={{fontFamily:'Medium',fontSize:14}}>{val.hotel.name}</Text>
+                    <Text  style={{fontFamily:'Regular',fontSize:12,color:Colors.navCol}}>{val.startTour} - {val.endTour}</Text>
                   </View>
                 </View>
                 <View style={MyTripStyleSheet.lowerCard}>
-                  <TouchableOpacity style={MyTripStyleSheet.btn}>
+                  <TouchableOpacity onPress={()=>navigation.navigate('HotelDetails',{country:val.country,hotel:val.hotel})} style={MyTripStyleSheet.btn}>
                     <Text style={MyTripStyleSheet.btn.text}>Book Again</Text>
                   </TouchableOpacity>
                   <TouchableOpacity style={{...MyTripStyleSheet.btn,borderLeftWidth:.3}}>
@@ -59,7 +86,8 @@ const MyTripScreens = ({navigation,route}) => {
                   </TouchableOpacity>
                 </View>
               </View>
-            )})
+            )}):
+            <Text style={{fontFamily:'Medium',fontSize:30,color:Colors.mainCol}}>No Booking is done by you.</Text>
           }
         </View>
       </ScrollView>

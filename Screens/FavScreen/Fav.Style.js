@@ -27,9 +27,9 @@ const FavStyleSheet = StyleSheet.create({
         gap:10
     },
     heart:{
-        position:'absolute',
-        top:10,
-        right:10,
+        // position:'absolute',
+        // top:10,
+        // right:10,
         color:Colors.bgCol,
         backgroundColor:Colors.mainCol,
         padding:5,

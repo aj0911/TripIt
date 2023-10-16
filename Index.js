@@ -19,7 +19,6 @@ import Booking from './Screens/BookingScreens/Booking'
 import BookingDetails from './Screens/BookingScreens/BookingDetails'
 import Toast from 'react-native-toast-message'
 import { useSelector } from 'react-redux'
-import LoginWarning from './Screens/AditionalScreens/LoginWarning'
 
 const Index = () => {
 

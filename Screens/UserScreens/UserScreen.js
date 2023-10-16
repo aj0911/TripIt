@@ -56,20 +56,16 @@ const UserScreen = ({navigation,route}) => {
               <Text style={UserStyleSheet.data.value}>{authReducer.user.email}</Text>
             </View>
             <View style={UserStyleSheet.data}>
-              <Text style={UserStyleSheet.data.field}>Phone Number</Text>
-              <Text style={UserStyleSheet.data.value}>{authReducer.user.phone}</Text>
-            </View>
-            <View style={UserStyleSheet.data}>
               <Text style={UserStyleSheet.data.field}>Gender</Text>
-              <Text style={UserStyleSheet.data.value}>{authReducer.user.gender}</Text>
+              <Text style={UserStyleSheet.data.value}>Male</Text>
             </View>
             <View style={UserStyleSheet.data}>
               <Text style={UserStyleSheet.data.field}>Date Of Birth</Text>
-              <Text style={UserStyleSheet.data.value}>{authReducer.user.dob}</Text>
+              <Text style={UserStyleSheet.data.value}>09/11/2004</Text>
             </View>
             <View style={UserStyleSheet.data}>
               <Text style={UserStyleSheet.data.field}>Address</Text> 
-              <Text style={UserStyleSheet.data.value}>{authReducer.user.address}</Text>
+              <Text style={UserStyleSheet.data.value}>123 - Royal Street India</Text>
             </View>
           </View>
         </View>

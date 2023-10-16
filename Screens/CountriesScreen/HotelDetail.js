@@ -78,7 +78,7 @@ const HotelDetail = ({navigation,route}) => {
                             <Text style={{fontFamily:'Medium',fontSize:12,color:Colors.navCol}}>{route.params.hotel.rating} (512 Reviews)</Text>
                         </View>
                     </View>
-                    <TouchableOpacity onPress={()=>navigation.navigate('Booking')} style={{backgroundColor:Colors.mainCol,padding:10,borderRadius:50}}>
+                    <TouchableOpacity onPress={()=>navigation.navigate('Booking',route.params)} style={{backgroundColor:Colors.mainCol,padding:10,borderRadius:50}}>
                         <Text style={{fontFamily:'Medium',fontSize:14,color:Colors.bgCol}}>Book Now</Text>
                     </TouchableOpacity>
                 </View>:
