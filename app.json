@@ -19,12 +19,18 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/Images/SplashLogo.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.ajsol0911.TripIt"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "fcb8ec12-8e27-43d1-a508-8676be496aae"
+      }
     }
   }
 }
