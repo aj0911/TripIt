@@ -1,11 +1,17 @@
-import { createReducer } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = {
-    isIntro:true
-}
-
-export const Intro =  createReducer(initialState,{
+export const introSlice = createSlice({
+    name: "Intro",
+    initialState: {
+        isIntro:true
+    },
+    reducers: {
         done:(state)=>{
             state.isIntro = false;
-        }
-})
+        }  
+    },
+});
+
+export const Intro =  introSlice.reducer;
+export const {done} = introSlice.actions;
+

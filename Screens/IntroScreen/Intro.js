@@ -4,6 +4,7 @@ import IntroStyleSheet from './Intro.Style'
 import Colors from '../../assets/Colors'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { useDispatch, useSelector } from 'react-redux'
+import { done } from '../../Reducers/IntroReducer'
 
 const Intro = ({navigation}) => {
 
@@ -54,13 +55,13 @@ const Intro = ({navigation}) => {
       <View style={{...IntroStyleSheet.pagination,justifyContent:(page>=cards.length-1)?'center':'space-between'}}>
         {
             (page>=cards.length-1)?'':
-            <TouchableOpacity  onPress={()=>{dispatch({type:'done'});navigation.navigate('Home');}}>
+            <TouchableOpacity  onPress={()=>{dispatch(done());navigation.navigate('Home');}}>
                 <Text style={IntroStyleSheet.pagination.text}>Skip</Text>
             </TouchableOpacity>
         }
         {
             (page>=cards.length-1)?
-            <TouchableOpacity onPress={()=>{dispatch({type:'done'});navigation.navigate('Login');}}>
+            <TouchableOpacity onPress={()=>{dispatch(done());navigation.navigate('Login');}}>
                 <Text style={IntroStyleSheet.pagination.text}>Let's Go!</Text>
             </TouchableOpacity>
             :

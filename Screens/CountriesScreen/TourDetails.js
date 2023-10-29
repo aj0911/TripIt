@@ -10,6 +10,7 @@ import StarComponent from '../../Components/StarComponent'
 import CountryStyleSheet from './Countries.Style'
 import { useDispatch, useSelector } from 'react-redux'
 import Toast from 'react-native-toast-message'
+import { addFav } from '../../Reducers/FavReducer'
 
 const TourDetails = ({navigation,route}) => {
   const [drawerOpen,setDrawerOpen] = useState(false);
@@ -37,7 +38,7 @@ const TourDetails = ({navigation,route}) => {
             visibilityTime:3000
         });return;
     }
-    dispatch({type:'addFav',payload:{hotel,user:authReducer.user}})
+    dispatch(addFav({hotel,user:authReducer.user}))
     Toast.show({
         type:'success',
         text1:'Success',

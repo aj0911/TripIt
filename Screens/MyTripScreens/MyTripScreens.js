@@ -87,7 +87,7 @@ const MyTripScreens = ({navigation,route}) => {
                 </View>
               </View>
             )}):
-            <Text style={{fontFamily:'Medium',fontSize:30,color:Colors.mainCol}}>No Booking is done by you.</Text>
+            <Text style={{fontFamily:'Medium',textAlign:'center',fontSize:30,color:Colors.mainCol}}>No Booking is done by you.</Text>
           }
         </View>
       </ScrollView>

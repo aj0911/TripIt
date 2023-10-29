@@ -10,6 +10,7 @@ import Toast from 'react-native-toast-message'
 import { createUserWithEmailAndPassword, sendPasswordResetEmail, signInWithEmailAndPassword, updateProfile } from 'firebase/auth'
 import { auth } from '../../firebase'
 import { useDispatch, useSelector } from 'react-redux'
+import { login } from '../../Reducers/AuthReducer'
 
 const Login = ({name,setName,navigation,setLoader}) => {
     const pinRef = {
@@ -92,11 +93,11 @@ const Login = ({name,setName,navigation,setLoader}) => {
                         autoHide:true,
                         type:'success'
                     });
-                    dispatch({type:'login',payload:{
+                    dispatch(login({
                         email:res.user.email,
                         name:res.user.displayName,
                         img:res.user.photoURL
-                    }})
+                    }))
                     navigation.navigate('Home');
                 }).catch((err)=>{
                     Toast.show({
@@ -141,11 +142,11 @@ const Login = ({name,setName,navigation,setLoader}) => {
                         displayName:registerCredentials.name,
                         photoURL,
                     }).then((res)=>{
-                        dispatch({type:'login',payload:{
+                        dispatch(login({
                             email:registerCredentials.email,
                             name:registerCredentials.name,
                             img:photoURL
-                        }})
+                        }))
                         Toast.show({
                             text1:'Success',
                             text2: `Registered Successfully`,

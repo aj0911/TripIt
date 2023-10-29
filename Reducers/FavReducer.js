@@ -1,7 +1,9 @@
-import { createReducer } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = []
-export const FavReducer =  createReducer(initialState,{
+export const favSlice = createSlice({
+    name: "FavReducer",
+    initialState:  [],
+    reducers: {
         addFav:(state,{payload})=>{
             if(state.length===0){
                 state.push({
@@ -25,5 +27,9 @@ export const FavReducer =  createReducer(initialState,{
                 }
             }
             // console.log(state)
-        }
-})
+        } 
+    },
+});
+
+export const FavReducer =  favSlice.reducer;
+export const {addFav} = favSlice.actions;

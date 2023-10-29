@@ -4,7 +4,7 @@
     "slug": "TripIt",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/Images/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/Images/SplashLogo.png",
@@ -19,7 +19,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/Images/SplashLogo.png",
+        "foregroundImage": "./assets/Images/icon.png",
         "backgroundColor": "#ffffff"
       },
       "package": "com.ajsol0911.TripIt"

@@ -7,6 +7,7 @@ import Constants from './Constants'
 import Colors from '../assets/Colors'
 import { useDispatch, useSelector } from 'react-redux'
 import Toast from 'react-native-toast-message'
+import { logout } from '../Reducers/AuthReducer'
 
 const DrawerNav = ({setDrawerOpen,animation,startAnimation,naviagation}) => {
   const authRed = useSelector(state=>state.auth)
@@ -75,7 +76,7 @@ const DrawerNav = ({setDrawerOpen,animation,startAnimation,naviagation}) => {
           {
             navBars.map((nav,index)=>(
               <TouchableOpacity onPress={()=>{setDrawerOpen(false);startAnimation();
-              if(nav.text==='Log Out'){dispatch({type:'logout'});Toast.show({
+              if(nav.text==='Log Out'){dispatch(logout());Toast.show({
                 text1:'Success',
                 text2: `Logout Successfully`,
                 visibilityTime:3000,
