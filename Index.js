@@ -4,7 +4,7 @@ import {NavigationContainer} from '@react-navigation/native'
 import ScreenComponent from './Components/ScreenComponent'
 import Intro from './Screens/IntroScreen/Intro'
 import AuthScreen from './Screens/AuthenticationScreen/AuthScreen'
-import { ScrollView } from 'react-native'
+import { ScrollView, View } from 'react-native'
 import SearchScreen from './Screens/AditionalScreens/SearchScreen'
 import HomeScreen from './Screens/HomeScreen/HomeScreen'
 import Countries from './Screens/CountriesScreen/Countries'
@@ -20,7 +20,7 @@ import BookingDetails from './Screens/BookingScreens/BookingDetails'
 import Toast from 'react-native-toast-message'
 import { useSelector } from 'react-redux'
 
-const Index = () => {
+const Index = ({onLayoutRootView}) => {
 
     const Stack = createStackNavigator();
     const authReducer = useSelector(state=>state.auth)
@@ -75,7 +75,7 @@ const Index = () => {
     }
   return (
     <>
-      <NavigationContainer>
+      <NavigationContainer onReady={onLayoutRootView}>
           <Stack.Navigator initialRouteName={(authReducer.isAuth)?'Home':'Intro'} screenOptions={{headerShown:false}}>
               <Stack.Screen name='Intro' component={IntroView}/>
               <Stack.Screen name='Login' component={AuthView}/>

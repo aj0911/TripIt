@@ -1,12 +1,11 @@
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen'
 import { useCallback } from 'react';
-import 'react-native-gesture-handler';
 import Index from './Index';
 import store from './Store';
 import { Provider } from 'react-redux';
-import { PersistGate } from 'redux-persist/integration/react';
-import { persistStore } from 'redux-persist';
+
+SplashScreen.preventAutoHideAsync();
 
 export default function App() {
 
@@ -23,17 +22,19 @@ export default function App() {
   });
 
   const onLayoutRootView = useCallback(async () => {
-    if (fontsLoaded) await SplashScreen.hideAsync();
-  }, [fontsLoaded])
+    if (fontsLoaded) {
+      await SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
 
-  if (!fontsLoaded) return null;
+  if (!fontsLoaded) {
+    return null;
+  }
 
   return (
     <>
       <Provider store={store}>
-          <PersistGate persistor={persistStore(store)}>
-              <Index/>
-          </PersistGate>
+          <Index onLayoutRootView={onLayoutRootView}/>
       </Provider>
     </>
   )

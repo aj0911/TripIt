@@ -20,6 +20,7 @@ const BookingDetails = ({navigation,route}) => {
     const [tAmount,setTAmount] = useState(1200*(adult+child));
     const [loader,setLoader] = useState(false);
     const authReducer = useSelector(state=>state.auth)
+    // console.log(authReducer)
     const RazorPayClick = ()=>{
         setLoader(true);
         const id = uid();

@@ -7,7 +7,7 @@ node_modules/
 .expo/
 dist/
 web-build/
-SecuredData.js
+# SecuredData.js
 
 # Native
 *.orig.*

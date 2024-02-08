@@ -7,8 +7,6 @@ import DrawerNav from '../../Components/DrawerNav'
 import { Ionicons } from '@expo/vector-icons'
 import Constants, { Data, topPlaces } from '../../Components/Constants'
 import Colors from '../../assets/Colors'
-import StarComponent from '../../Components/StarComponent'
-import AuthStyleSheet from '../AuthenticationScreen/AuthScreen.Style'
 import { ScrollView } from 'react-native-gesture-handler'
 import { onValue, ref } from 'firebase/database'
 import { db } from '../../firebase'
@@ -30,7 +28,7 @@ const MyTripScreens = ({navigation,route}) => {
   const getBookings = ()=>{
     onValue(ref(db,'booking'),(snapshot)=>{
       const res = Object.values(snapshot.val());
-      const arr = res.filter(key=>key.email===authReducer.user.email);
+      const arr = res.filter(key=>key.email.toLowerCase()===authReducer.user.email.toLowerCase());
       setData(arr);
     },(err)=>{
       Toast.show({

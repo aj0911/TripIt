@@ -3,7 +3,7 @@ import React from 'react'
 
 const ScreenComponent = ({Component,...rest}) => {
   return (
-    <View style={{marginTop:(Platform.OS==='android')?StatusBar.currentHeight:0}}>
+    <View style={{marginTop:(Platform.OS==='android')?0:0}}>
       <SafeAreaView>
             <Component {...rest}/>
       </SafeAreaView>
