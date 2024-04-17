@@ -20,7 +20,7 @@ import BookingDetails from './Screens/BookingScreens/BookingDetails'
 import Toast from 'react-native-toast-message'
 import { useSelector } from 'react-redux'
 
-const Index = ({onLayoutRootView}) => {
+const Index = ({}) => {
 
     const Stack = createStackNavigator();
     const authReducer = useSelector(state=>state.auth)
@@ -75,7 +75,7 @@ const Index = ({onLayoutRootView}) => {
     }
   return (
     <>
-      <NavigationContainer onReady={onLayoutRootView}>
+      <NavigationContainer>
           <Stack.Navigator initialRouteName={(authReducer.isAuth)?'Home':'Intro'} screenOptions={{headerShown:false}}>
               <Stack.Screen name='Intro' component={IntroView}/>
               <Stack.Screen name='Login' component={AuthView}/>
